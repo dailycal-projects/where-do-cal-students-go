@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head align='center'>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['sankey']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Number');
+        data.addRows([
+          ["MCB","Researcher/Lab Assistant",102],
+["Public Health","Researcher/Lab Assistant",14],
+["Integrative Bio","Researcher/Lab Assistant",24],
+["MCB","Medical Assistant/Scribe",17],
+["Public Health","Medical Assistant/Scribe",6],
+["Integrative Bio","Medical Assistant/Scribe",23],
+["MCB","Policy Analyst",1],
+["Public Health","Policy Analyst",9],
+["Integrative Bio","Policy Analyst",0],
+["MCB","Consultant",6],
+["Public Health","Consultant",14],
+["Integrative Bio","Consultant",2],
+["MCB","Educator",7],
+["Public Health","Educator",3],
+["Integrative Bio","Educator",4],
+["MCB","Financial/Business Analyst",9],
+["Public Health","Financial/Business Analyst",8],
+["Integrative Bio","Financial/Business Analyst",2],
+["MCB","Technology",4],
+["Public Health","Technology",1],
+["Integrative Bio","Technology",2],
+        ]);
+
+        // Sets chart options.
+    		var options = {
+    			width: 600,
+    			height: 400,
+			sankey: {
+                               link: {
+                                 color: {fill: '#aec6cf'}
+                                },
+			      node: { label: {
+  				   fontSize: 12,
+				    },
+				    nodePadding: 25,
+				    width: 10,
+					  } },
+    				      };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_bio'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="sankey_bio" style="width: 600px; height: 400px;"></div>
+  </body>
+
+</html>

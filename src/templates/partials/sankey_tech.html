@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head align='center'>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['sankey']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Number');
+        data.addRows([
+          ["EECS","Software Engineer",188],
+["Computer Science","Software Engineer",340],
+["Cognitive Science","Software Engineer",52],
+["Applied Math","Software Engineer",33],
+["EECS","Researcher",2],
+["Computer Science","Researcher",5],
+["Cognitive Science","Researcher",20],
+["Applied Math","Researcher",9],
+["EECS","Entrepreneur",2],
+["Computer Science","Entrepreneur",2],
+["Cognitive Science","Entrepreneur",1],
+["Applied Math","Entrepreneur",1],
+["EECS","Product Manager",4],
+["Computer Science","Product Manager",8],
+["Cognitive Science","Product Manager",5],
+["Applied Math","Product Manager",0],
+["EECS","Product Designer",1],
+["Computer Science","Product Designer",1],
+["Cognitive Science","Product Designer",7],
+["Applied Math","Product Designer",0],
+["EECS","Hardware Engineer",6],
+["Computer Science","Hardware Engineer",2],
+["Cognitive Science","Hardware Engineer",0],
+["Applied Math","Hardware Engineer",0],
+["EECS","Educator",0],
+["Computer Science","Educator",0],
+["Cognitive Science","Educator",6],
+["Applied Math","Educator",4],
+["EECS","Data Analyst/Scientist",1],
+["Computer Science","Data Analyst/Scientist",5],
+["Cognitive Science","Data Analyst/Scientist",4],
+["Applied Math","Data Analyst/Scientist",8],
+["EECS","Business/Finance Analyst",3],
+["Computer Science","Business/Finance Analyst",11],
+["Cognitive Science","Business/Finance Analyst",9],
+["Applied Math","Business/Finance Analyst",19],
+        ]);
+
+        // Sets chart options.
+    		var options = {
+    			width: 600,
+    			height: 400,
+			sankey: {
+                               link: {
+                                 color: {fill: '#aec6cf'}
+                                },
+			      node: { label: {
+  				   fontSize: 12,
+				    },
+				    nodePadding: 25,
+				    width: 10,
+					  } },
+    				      };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_tech'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="sankey_tech" style="width: 600px; height: 400px;"></div>
+  </body>
+
+</html>

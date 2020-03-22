@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head align='center'>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['sankey']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Number');
+        data.addRows([
+          ["Haas","Data Analyst",5],
+["Economics","Data Analyst",9],
+["Haas","Financial/Business Analyst",101],
+["Economics","Financial/Business Analyst",91],
+["Haas","Consultant",68],
+["Economics","Consultant",55],
+["Haas","Software Engineer",16],
+["Economics","Software Engineer",17],
+["Haas","Product Manager",15],
+["Economics","Product Manager",1],
+["Haas","Accountant/Auditor",31],
+["Economics","Accountant/Auditor",19],
+["Haas","Investment Banking",56],
+["Economics","Investment Banking",36],
+["Haas","Research Assistant",8],
+["Economics","Research Assistant",8],
+["Haas","Teacher",3],
+["Economics","Teacher",1],
+["Haas","Policy Analyst",1],
+["Economics","Policy Analyst",2],
+["Haas","Legal Analyst",1],
+["Economics","Legal Analyst",3],
+["Haas","Marketing",16],
+["Economics","Marketing",14],
+["Haas","Reporter",2],
+["Economics","Reporter",1],
+        ]);
+
+        // Sets chart options.
+    		var options = {
+    			width: 600,
+                        height: 400,
+			sankey: {
+                               link: {
+                                 color: {fill: '#aec6cf'}
+                                },
+                        }
+    				      };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_bus'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="sankey_bus" style="width: 900px; height: 400px;"></div>
+  </body>
+
+</html>

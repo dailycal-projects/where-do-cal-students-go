@@ -8,58 +8,83 @@
 
       function drawChart() {
         var data = new google.visualization.DataTable();
-        var econ =1
         data.addColumn('string', 'From');
         data.addColumn('string', 'To');
-        data.addColumn('number', 'Weight');
+        data.addColumn('number', 'Number');
         data.addRows([
-          [ 'Economics', 'Researcher', 37 / econ ],
-          [ 'Economics', 'Teacher', 0 / econ],
-          [ 'Economics', 'Analyst', 60 / econ],
-          [ 'Economics', 'Accountant', 11 / econ],
-          [ 'Economics', 'Consultant', 40 / econ],
-          [ 'Economics', 'Legal Assistant', 72 /econ ],
-          [ 'Economics', 'Financial/Business Analyst', 68 /econ ],
-          [ 'Economics', 'Software Engineer', 29 /econ ],
-          [ 'Economics', 'Data Analyst', 15 / econ],
-          [ 'Political Sci', 'Researcher', 6 / econ ],
-          [ 'Political Sci', 'Teacher', 12 / econ],
-          [ 'Political Sci', 'Analyst', 0 / econ],
-          [ 'Political Sci', 'Accountant', 0 / econ],
-          [ 'Political Sci', 'Consultant', 0 / econ],
-          [ 'Political Sci', 'Legal Assistant', 25 /econ ],
-          [ 'Political Sci', 'Financial/Business Analyst', 0 /econ ],
-          [ 'Political Sci', 'Software Engineer', 0 /econ ],
-          [ 'Political Sci', 'Data Analyst', 0 / econ],
-          [ 'Political Econ', 'Researcher', 0 / econ ],
-          [ 'Political Econ', 'Teacher', 0 / econ],
-          [ 'Political Econ', 'Analyst', 60 / econ],
-          [ 'Political Econ', 'Accountant', 11 / econ],
-          [ 'Political Econ', 'Consultant', 40 / econ],
-          [ 'Political Econ', 'Legal Assistant', 72 /econ ],
-          [ 'Political Econ', 'Financial/Business Analyst', 68 /econ ],
-          [ 'Political Econ', 'Software Engineer', 29 /econ ],
-          [ 'Political Econ', 'Data Analyst', 15 / econ],
+          ["Legal Studies","Legal Assistant",16],
+["Political Sci","Legal Assistant",25],
+["Political Econ","Legal Assistant",1],
+["Sociology","Legal Assistant",6],
+["Legal Studies","Policy Analyst",2],
+["Political Sci","Policy Analyst",10],
+["Political Econ","Policy Analyst",1],
+["Sociology","Policy Analyst",0],
+["Legal Studies","Financial/Business Analyst",6],
+["Political Sci","Financial/Business Analyst",10],
+["Political Econ","Financial/Business Analyst",29],
+["Sociology","Financial/Business Analyst",7],
+["Legal Studies","Educator",8],
+["Political Sci","Educator",12],
+["Political Econ","Educator",3],
+["Sociology","Educator",11],
+["Legal Studies","Consultant",2],
+["Political Sci","Consultant",8],
+["Political Econ","Consultant",8],
+["Sociology","Consultant",1],
+["Legal Studies","Human Resources",0],
+["Political Sci","Human Resources",2],
+["Political Econ","Human Resources",2],
+["Sociology","Human Resources",4],
+["Legal Studies","Marketing",1],
+["Political Sci","Marketing",4],
+["Political Econ","Marketing",6],
+["Sociology","Marketing",3],
+["Legal Studies","NGOs",0],
+["Political Sci","NGOs",6],
+["Political Econ","NGOs",0],
+["Sociology","NGOs",5],
+["Legal Studies","Government",3],
+["Political Sci","Government",5],
+["Political Econ","Government",1],
+["Sociology","Government",3],
+["Legal Studies","Accountant/Auditor",1],
+["Political Sci","Accountant/Auditor",2],
+["Political Econ","Accountant/Auditor",4],
+["Sociology","Accountant/Auditor",0],
+["Legal Studies","Sales",0],
+["Political Sci","Sales",4],
+["Political Econ","Sales",2],
+["Sociology","Sales",2],
+["Legal Studies","Military",1],
+["Political Sci","Military",3],
+["Political Econ","Military",0],
+["Sociology","Military",0],
         ]);
 
         // Sets chart options.
-        var options = {
-          width: 900,
-		    sankey: {
-                    link: {
-                      color: {fill: '#aec6cf'}
-                      },
-        },
-        };
+    		var options = {
+    			width: 600,
+    			height: 400,
+			sankey: {
+                               link: {
+                                 color: {fill: '#aec6cf'}
+                                },
+			      node: { label: {
+  				   fontSize: 12,
+				    },
+                                  nodePadding: 25,
+					  } },
+    				      };
 
         // Instantiates and draws our chart, passing in some options.
-        var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_pol'));
         chart.draw(data, options);
       }
     </script>
   </head>
   <body>
-    <div id="sankey_basic" style="width: 900px; height: 300px;"></div>
+    <div id="sankey_pol" style="width: 600px; height: 400px;"></div>
   </body>
 
 </html>
