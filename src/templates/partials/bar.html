@@ -5,13 +5,13 @@
 div.tooltip {
     position: absolute;
     text-align: center;
-    width: 60px;
+    width: 200px;
     height: 14px;
-    padding: 2px;
+    padding: 4px;
     font: 11px sans-serif;
     background: white;
     border: 0px;
-    border-radius: 8px;
+    border-radius: 10px;
     pointer-events: none;
 }
 .axis path,
@@ -162,7 +162,7 @@ var groupData = [
                 div.html(tuit)
                     .style("left", (d3.event.pageX + 10) + "px")
                     .style("top", (d3.event.pageY - 15) + "px")
-                    .style("font-size", "8.75px");
+                    .style("font-size", "10px");
 
             })
             .on("mouseout", function(d) {

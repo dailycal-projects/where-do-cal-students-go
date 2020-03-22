@@ -43,12 +43,16 @@
         // Sets chart options.
     		var options = {
     			width: 600,
-                        height: 400,
+                        height: 500,
 			sankey: {
                                link: {
                                  color: {fill: '#aec6cf'}
                                 },
-                        }
+			      node: { label: {
+  				   fontSize: 12,
+				    },
+                                nodePadding: 15,
+					  } },
     				      };
 
         // Instantiates and draws our chart, passing in some options.
@@ -58,7 +62,7 @@
     </script>
   </head>
   <body>
-    <div id="sankey_bus" style="width: 900px; height: 400px;"></div>
+    <div id="sankey_bus" style="width: 600px; height: 500px;"></div>
   </body>
 
 </html>
