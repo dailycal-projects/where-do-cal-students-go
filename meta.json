@@ -1,0 +1,35 @@
+{
+  "id": "2784169741",
+  "publishPath": "2020/test/",
+  "stagingUrl": "http://stage-projects.dailycal.org/2020/test/index.html",
+  "url": "http://projects.dailycal.org/2020/test/",
+  "timestamp": "2018-04-10T08:13-0400",
+  "dateline": "04/10/18 08:13 PM EDT",
+  "header": {
+    "headline": "This is your headline in the metadata file",
+    "subhed": "Subhed lives in the metadata.",
+    "byline": "Byline in metadata",
+    "byline_link": "https://www.dailycal.org/"
+  },
+  "share": {
+    "fbook": {
+      "card_title": "test",
+      "card_description": "UC Berkeley's independent student-run newspaper",
+      "author": "dailycal"
+    },
+    "twitter": {
+      "card_title": "test",
+      "share_tweet": "UC Berkeley's independent student-run newspaper",
+      "card_description": "The latest news from The Daily Californian.",
+      "author": "@dailycal"
+    },
+    "image": {
+      "url": "http://projects.dailycal.org/2020/test/images/share.jpg",
+      "alt": "<Text>",
+      "type": "image/jpeg",
+      "width": "600",
+      "height": "300"
+    },
+    "keywords": "Daily Cal, news"
+  }
+}

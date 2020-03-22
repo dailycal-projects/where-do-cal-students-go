@@ -1,0 +1,192 @@
+{% macro jpg(name, alt='Image') %}
+<img
+  src="images/{{ name }}-1800.jpg"
+  srcset="images/{{ name }}-400.jpg 400w, images/{{ name }}-800.jpg 800w, images/{{ name }}-1200.jpg 1200w, images/{{ name }}-1800.jpg 1800w"
+  alt="{{ alt }}"
+/>
+{% endmacro %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta charset="utf-8">
+        {%block title%}<title>The Daily Californian</title>{%endblock%}
+        {%include "meta/_icons.html"%}
+
+        {%include "meta/_social.html"%}
+        {% if env == 'production' %}
+        <link href="css/main-app.css" rel="stylesheet">
+        {% endif %}
+        
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+        <!-- Font awesome -->
+        <script src="https://use.fontawesome.com/6c4d370962.js"></script>
+        <!-- jQuery -->
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+          crossorigin="anonymous">
+        </script>
+    </head>
+
+    <body align='center'>
+      {% include "partials/_nav.html" %}
+      {% include "partials/_header.html" %}
+    </body>
+
+      <article class="container">
+        <p align='left'>
+UC Berkeley leads the country as one of the top universities empowering students to combat income inequality.
+For students from lower-income backgrounds, higher education is a powerful gateway to climbing the income ladder.
+When compared to liberal arts colleges such as Amherst or Ivies like Cornell, the UC system enrolls a
+more diverse student body that cuts across all income brackets. </br></br>
+For all its pitfalls in student diversity and the gaps in support, Cal provides thousands of students each year
+with a high-quality education who otherwise could not afford one.
+Cal Bears return to their home communities with newfound knowledge about the world, determination to make an impact, and an expanded network. Some found their own businesses, others
+move abroad. All of them bring the skills developed during their time at Berkeley.</br></br>
+
+This article investigates the rising financial pressures on Berkeley students and their paths after graduation.
+Data about the careers of Berkeley students post-graduation is sourced from the Career Center's
+<a href=https://career.berkeley.edu/survey/survey>First Destination Survey</a> unless noted otherwise.</br></br>
+
+      </p>
+      </article>
+      <body>
+{% include "partials/bar.html" %}</br>
+      </body>
+<h2> Rising tuition, falling debt </h2>
+      <article class="container">
+        <p align='left'>
+The cost of attending a four-year public university jumped 35% over the past decade, according to the College Board.
+During the Great Recession, state funds allocated for public universities shrunk as tax revenue slowed and governments
+scrambled to patch economic emergencies. Today's public universities are increasingly dependent on private donors for
+assistance. UC Berkeley is no exception, as declining funding from the state of California and the rising cost of living
+in the Bay Area strains both students and staff.</br></br>
+
+Against this background of shrinking state budgets, student debt ballooned to $1.6 trillion in 2020. Student loans can burden households
+decades beyond graduation and are a hot-button issue in the upcoming election. I graphed changes in the cost of attending UC Berkeley
+using data from the US Department of Education's IPEDS database.</br></br>
+Despite rising tuition, the average financial debt of each graduating class has remained steady or declined
+since 2010 and actually dipped down to $14,629 in 2016. Though we can't definitively say why rising tuition has not
+led in higher student debt, larger financial scholarships likely helped offset the increase.
+The average financial aid package per student rose from $21,587 in the school year 2010-11 to $25,162 in 2015-16.
+
+      </article>
+      {% include "partials/line.html" %} </br>
+    <article class="container">
+      <p align='left'>
+        In the face of rising debt and an uncertain economic future, students may feel pressure to choose majors that promise lucrative careers.
+        The financial pressures of student loan debt endanger a core value of university education: the opportunity to explore passion over profession.
+        Students I spoke to brought up familial pressures and personal guilt regarding their choice of major.
+        One student mentioned that she entered college hoping to pursue a degree in classics, yet switched into computer science
+        because she was concerned about her ability to pay off student loans after graduation. Other students are confident that their choice will pay off.</br></br>
+
+        "I'm proud to remain in a major that I love. I can't imagine doing anything else, and that's what really matters,"
+        said a graduating senior, who requested to anonymity.</br></br>
+
+        Every student has a unique economic situation, and choice of major
+        is just one of many decisions that students must make about their financial future.
+        Below, you can see the income distribution of new
+        graduates from each college in Berkeley. Each boxplot represents the lower quartile,
+        median, and upper quartile of a graduating class from the college.
+
+      </p>
+
+      <img src="images/box.png" alt="" width="1150" height="375"></br></br></br>
+
+      <p align='left'>
+      Interestingly, the upper quartile of the Letters and Sciences school jumps significantly over the past few years. This can largely be explained by a jump
+      in the number of L&S Computer Science majors over the past few years. In 2015-16, Berkeley granted 422 Computer Science degrees. In 2018-19, the school granted
+      706 Computer Science degrees, according to Cal Answers.
+      Otherwise, the numbers remain fairly consistent -- small fluctuations can be explained by variation in response rates between colleges and over the years.
+      </p>
+      </article>
+
+
+      <h2> Where do Bears live after graduating? </h2>
+    <article class="container">
+      <p align='left'>Next, we investigate the geographic distribution of the new graduating class.
+        I broke the data down by college to visualize the differing paths of new grads based
+        on their specialties. Depending on the types of careers students decide to pursue,
+        they may end up in different places.
+      </p>
+      </article>
+      <body align='center'>
+        {% include "partials/bar_bay.html" %}</br>
+      </body>
+    <article class="container">
+      <p align='left'>Unsurprisingly, the vast majority of new grads decide to stay in the Bay Area.
+        As seen in the chart above, over half of graduates from all six schools stay in the Bay Area.
+        Students in the College of Chemistry are the least likely to stay, while Environmental
+        Design majors are most likely remain, with 78% planning to reside in the Bay immediately after graduation.
+        With plentiful opportunities for technology, business, law, medicine, politics, and design, the Bay Area
+        is a natural choice for new grads who have already spent four years growing accustomed to its charms.</br></br>
+
+        Below, you can see a visualization of the places new Berkeley alumni live outside the Bay Area. In the diagram, you
+        can follow a link from left to right to see the percentage of students from that college planning
+        to live in the area on the right side. Thicker links denote more students moving to that area.
+      </p>
+      </article>
+      <center>{% include "partials/sankey_region.html" %}</center>
+
+    <article class="container">
+      <p align='left'>
+      Destinations outside the Bay Area are more varied across the colleges. Haas alums are most likely to end up in
+      the Northeast, with 11% planning on living there. Los Angeles is another popular destination for Cal Bears: 12% of engineering
+      majors and 12% of Environmental Design alums decide to live in LA.</br></br>
+
+      The percentage of alums moving internationally is fairly constant across the college at around 5%.</p>
+      </article>
+      <h2> What jobs do Bears work after campus? </h2>
+
+    <article class="container">
+      <p align='left'>
+      Next, I examine the types of professional lives and jobs that new grads pursue after Berkeley. Again, this data is drawn
+      from alums immediately after graduation and doesn't reflect their long-term career choices.
+      </p>
+      </article>
+      <center>{% include "partials/sankey_after.html" %}</center>
+    <article class="container">
+      <p align='left'>
+        Alums from the College of Chemistry are the most likely to attend graduate school immediately after undergrad, with 28%
+        matriculating to another university.
+      </p>
+    </article>
+      <h2> Bears in Grad School </h2>
+    <article class="container">
+      <p align='left'>
+        Below is a diagram showing majors on the left and their intended graduate degree on the right. Links with counts less than 5 were excluded for privacy reasons.
+      </p>
+    </article>
+      <center>{% include "partials/sankey_grad.html" %}</center>
+
+
+      <h2> Entrepreneurs after Berkeley </h2>
+
+
+    <article class="container">
+      <p align='left'>
+        Berkeley boasts a thriving startup landscape, with nearby funds like the House and accelerators such as Skydeck helping
+        to support entrepreneurs who are either current students or alumni. The Bay Area Economic Council recently performed a study
+        on entrepreneurship across the UC system, documenting all startups founded between 1968 and 2015 by alumni from UC schools.
+        Below, you can see a visualization of the startups: the school where founders graduated from, the good or service provided,
+        and whether they remain active today.
+      </p>
+      </article>
+      <center>{% include "partials/sankey_startup.html" %}</center>
+
+    <article class="container">
+      <p align='left'>
+        Among UC universities, the data catalogs 260 startups founded by Berkeley alums, of which 99 remain active. This is likely only a
+        fraction of the whole entrepreneurship ecosystem.
+      </p>
+      </article>
+
+      {% include "partials/_footer.html" %}
+{% block js %}
+<script type="text/javascript" src="js/main-app.bundle.js"></script>
+
+{% endblock %}

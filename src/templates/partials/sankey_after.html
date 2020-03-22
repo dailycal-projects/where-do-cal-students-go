@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head align='center'>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['sankey']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Percentage');
+        data.addRows([
+          [ 'Chemistry', 'Employed', 39 ],
+          [ 'Chemistry', 'Graduate school', 37 ],
+          [ 'Chemistry', 'Seeking work', 24 ],
+          [ 'Chemistry', 'Other', 1 ],
+          [ 'Engineering', 'Employed', 60 ],
+          [ 'Engineering', 'Graduate school', 28 ],
+          [ 'Engineering', 'Seeking work', 11 ],
+          [ 'Engineering', 'Other', 1 ],
+          [ 'Env Design', 'Employed', 42 ],
+          [ 'Env Design', 'Graduate school', 12 ],
+          [ 'Env Design', 'Seeking work', 39 ],
+          [ 'Env Design', 'Other', 7 ],
+          [ 'Letters & Sciences', 'Employed', 51 ],
+          [ 'Letters & Sciences', 'Graduate school', 19 ],
+          [ 'Letters & Sciences', 'Seeking work', 22 ],
+          [ 'Letters & Sciences', 'Other', 8 ],
+          [ 'Natural Resources', 'Employed', 46 ],
+          [ 'Natural Resources', 'Graduate school', 14 ],
+          [ 'Natural Resources', 'Seeking work', 28 ],
+          [ 'Natural Resources', 'Other', 12 ],
+          [ 'Haas', 'Employed', 83 ],
+          [ 'Haas', 'Graduate school', 3 ],
+          [ 'Haas', 'Seeking work', 10 ],
+          [ 'Haas', 'Other', 2 ],
+        ]);
+
+        // Sets chart options.
+        var options = {
+          width: 700,
+          height: 400,
+		    sankey: {
+                    link: {
+                      color: {fill: '#aec6cf'}
+                      },
+                }
+        };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_new'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="sankey_new" style="width: 700px; height: 400px;"></div>
+  </body>
+
+</html>

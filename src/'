@@ -1,0 +1,110 @@
+{% macro jpg(name, alt='Image') %}
+<img
+  src="images/{{ name }}-1800.jpg"
+  srcset="images/{{ name }}-400.jpg 400w, images/{{ name }}-800.jpg 800w, images/{{ name }}-1200.jpg 1200w, images/{{ name }}-1800.jpg 1800w"
+  alt="{{ alt }}"
+/>
+{% endmacro %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta charset="utf-8">
+        {%block title%}<title>The Daily Californian</title>{%endblock%}
+        {%include "meta/_icons.html"%}
+
+        {%include "meta/_social.html"%}
+        {% if env == 'production' %}
+        <link href="css/main-app.css" rel="stylesheet">
+        {% endif %}
+        
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+        <!-- Font awesome -->
+        <script src="https://use.fontawesome.com/6c4d370962.js"></script>
+        <!-- jQuery -->
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+          crossorigin="anonymous">
+        </script>
+    </head>
+
+    <body align='center'>
+      {% include "partials/_nav.html" %}
+      {% include "partials/_header.html" %}
+    </body>
+
+      <article class="container">
+        <p align='left'>
+The cost of attending a four-year public university jumped 35% over the past decade, according to the College Board.
+During the Great Recession, state funds allocated for public universities shrunk as tax revenue slowed and governments
+scrambled to patch economic emergencies. Today's public universities are increasingly dependent on private donors for
+assistance. </br></br>
+
+Against this background of shrinking state budgets, student debt ballooned to $1.6 trillion in 2020, burdens households even
+decades beyond graduation, and is a pressing political question in the 2020 presidential election. To examine the effects of
+tuition and student debt in the context of Berkeley, I used data from the US Department of Education's IPEDS database.
+        </p>
+
+
+      </article>
+
+      <body>
+{% include "partials/bar.html" %}</br>
+      </body>
+
+
+    <article class="container">
+      <p align='left'>
+Despite the rising tuition costs, the average financial debt of each graduating class has remained steady or declined
+since 2010. Financial scholarships from the school have increased since 2010.
+
+Recent literature analyzes trends toward declining resources for public universities,
+changing administrative practices, and ballooning student debt to quantify the
+autonomy of academic institutions to pursue basic research free from interference
+(Aberbach and Christensen, 2018). In an era of declining state support for the
+University of California schools, administrators are turning to budget-conscious
+efforts to cut spending and raise money from donors. The Center on Budget and
+Policy Priorities published a report in 2016 on the effect of rising tuition and
+financial pressures on students’ freedom to pursue their own interests as the
+expense of future earnings. we believe this is a major gap in
+our understanding of Berkeley’s institutional history and how the student
+experience has evolved in light of recent developments.</p>
+      </article>
+      {% include "partials/line.html" %} </br>
+
+      <h2> Where do Bears live after graduating? </h2></br></br></br>
+      <body>
+{% include "partials/bar_bay.html" %}</br>
+      </body>
+      <center>{% include "partials/sankey_region.html" %}</center>
+<h2> What jobs do Bears work after campus? </h2>
+      <center>{% include "partials/sankey_after.html" %}</center></br></br></br>
+      <center>{% include "partials/sankey_haas.html" %}</center></br></br></br>
+      <img src="images/box.png" alt="" width="1150" height="375"></br>
+      {% include "partials/_footer.html" %}
+
+    <article class="container">
+      <p align='left'>
+Despite the rising tuition costs, the average financial debt of each graduating class has remained steady or declined
+since 2010. Financial scholarships from the school have increased since 2010.
+
+Recent literature analyzes trends toward declining resources for public universities,
+changing administrative practices, and ballooning student debt to quantify the
+autonomy of academic institutions to pursue basic research free from interference
+(Aberbach and Christensen, 2018). In an era of declining state support for the
+University of California schools, administrators are turning to budget-conscious
+efforts to cut spending and raise money from donors. The Center on Budget and
+Policy Priorities published a report in 2016 on the effect of rising tuition and
+financial pressures on students’ freedom to pursue their own interests as the
+expense of future earnings. we believe this is a major gap in
+our understanding of Berkeley’s institutional history and how the student
+experience has evolved in light of recent developments.</p>
+      </article>
+{% block js %}
+<script type="text/javascript" src="js/main-app.bundle.js"></script>
+
+{% endblock %}

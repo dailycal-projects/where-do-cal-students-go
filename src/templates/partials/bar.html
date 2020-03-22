@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 14px;
+    padding: 2px;
+    font: 11px sans-serif;
+    background: white;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+</style>
+
+<body>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script>
+
+var groupData = [
+                 { key: "2014-15", values:
+                                              [
+                                                {grpName:'Out-of-State (Off Campus)', grpValue:51778},
+                                                {grpName:'Out-of-State (On Campus)', grpValue:57234},
+                                                {grpName:'In-State (Off Campus)', grpValue:28900},
+                                                {grpName:'In-State (On Campus)', grpValue:34356},
+                                              ]
+                 },
+                 { key: "2015-16", values:
+                                              [
+                                                {grpName:'Out-of-State (Off Campus)', grpValue:54593},
+                                                {grpName:'Out-of-State (On Campus)', grpValue:59963},
+                                                {grpName:'In-State (Off Campus)', grpValue:29885},
+                                                {grpName:'In-State (On Campus)', grpValue:35255},
+                                              ]
+                 },
+                 { key: "2016-17", values:
+                                              [
+                                                {grpName:'Out-of-State (Off Campus)', grpValue:57155},
+                                                {grpName:'Out-of-State (On Campus)', grpValue:63051},
+                                                {grpName:'In-State (Off Campus)', grpValue:30473},
+                                                {grpName:'In-State (On Campus)', grpValue:36369},
+                                              ]
+                 },
+                 { key: "2017-18", values:
+                                              [
+                                                {grpName:'Out-of-State (Off Campus)', grpValue:61261},
+                                                {grpName:'Out-of-State (On Campus)', grpValue:65003},
+                                                {grpName:'In-State (Off Campus)', grpValue:33247},
+                                                {grpName:'In-State (On Campus)', grpValue:36989},
+                                              ]
+                 },
+                 { key: "2018-19", values:
+                                              [
+                                                {grpName:'Out-of-State (Off Campus)', grpValue:63288},
+                                                {grpName:'Out-of-State (On Campus)', grpValue:67058},
+                                                {grpName:'In-State (Off Campus)', grpValue:34296},
+                                                {grpName:'In-State (On Campus)', grpValue:38066},
+                                              ]
+                 },
+                 { key: "2019-20", values:
+                                              [
+                                                {grpName:'Out-of-State (Off Campus)', grpValue:65007},
+                                                {grpName:'Out-of-State (On Campus)', grpValue:69130},
+                                                {grpName:'In-State (Off Campus)', grpValue:35253},
+                                                {grpName:'In-State (On Campus)', grpValue:39376},
+                                              ]
+                 }
+                  ];
+
+
+    var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+    var margin = {top: 25, right: 200, bottom: 50, left: 100},
+    width = 900 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+    var x0  = d3.scaleBand().rangeRound([0, width], .3);
+    var x1  = d3.scaleBand().paddingInner(0).paddingOuter(0.6);
+    var x2  = d3.scaleBand().paddingInner(0).paddingOuter(0.3);
+    var y   = d3.scaleLinear().rangeRound([height, 0]);
+
+    var xAxis = d3.axisBottom().scale(x0)
+                                .tickValues(groupData.map(d=>d.key));
+
+    var yAxis = d3.axisLeft().scale(y);
+
+    var color = d3.scaleOrdinal().range(["#c23b22", "#8e1600", "#80CEE1",  "#779ecb"]);
+
+
+    var svg = d3.select('body').append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var categoriesNames = groupData.map(function(d) { return d.key; });
+    var rateNames       = groupData[0].values.map(function(d) { return d.grpName; });
+
+    x0.domain(categoriesNames);
+    x1.domain(rateNames).rangeRound([0, x0.bandwidth()]);
+    y.domain([0, d3.max(groupData, function(key) { return d3.max(key.values, function(d) { return d.grpValue; }); })]);
+
+    svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+        .append("text")
+            .text("Year");
+
+
+    svg.append("g")
+      .attr("class", "y axis")
+      .style('opacity','0')
+      .call(yAxis)
+        .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .style('font-weight','bold')
+            .text("Tuition");
+
+    svg.select('.y').transition().duration(500).delay(1300).style('opacity','1');
+
+    var slice = svg.selectAll(".slice")
+      .data(groupData)
+      .enter().append("g")
+      .attr("class", "g")
+      .attr("transform",function(d) { return "translate(" + x0(d.key) + ",0)"; });
+
+      slice.selectAll("rect")
+      .data(function(d) { return d.values; })
+        .enter().append("rect")
+            .attr("width", x1.bandwidth())
+            .attr("x", function(d) { return x1(d.grpName); })
+            .style("fill", function(d) { return color(d.grpName) })
+             .attr("y", function(d) { return y(0); })
+             .attr("height", function(d) { return height - y(0); })
+            .on("mouseover", function(d) {
+                d3.select(this).style("fill", d3.rgb(color(d.grpName)).darker(2))
+                div.transition()
+                    .duration(200)
+                    .style("opacity", .9)
+                let tuit = "$" + d.grpValue.toString()
+                div.html(tuit)
+                    .style("left", (d3.event.pageX + 10) + "px")
+                    .style("top", (d3.event.pageY - 15) + "px")
+                    .style("font-size", "8.75px");
+
+            })
+            .on("mouseout", function(d) {
+                d3.select(this).style("fill", color(d.grpName))
+                div.transition()
+                    .duration(300)
+                    .style("opacity", 0);
+            });
+
+
+    slice.selectAll("rect")
+      .transition()
+      .delay(function (d) {return Math.random()*1000;})
+      .duration(1000)
+      .attr("y", function(d) { return y(d.grpValue); })
+      .attr("height", function(d) { return height - y(d.grpValue); });
+
+svg.append("text")
+        .attr("x", (width / 2))
+        .attr("y", 0 - (margin.top / 4))
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")
+        .style("font-family", "Arial")
+        .text("Cost of Attending Berkeley (2014-2020)");
+
+svg.append("text")
+        .attr("x", width )
+        .attr("y", height + 40)
+         .style("font-size", "11px")
+         .style("font-family", "Arial")
+          .style("font-style", "italic")
+         .text("Source: US Dept of Education");
+
+      //Legend
+
+  var legend = svg.selectAll(".legend")
+      .data(groupData[0].values.map(function(d) { return d.grpName; }))
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d,i) { return "translate(0," + i * 20 + ")"; })
+      .style("opacity","0");
+
+  legend.append("rect")
+      .attr("x", width + 120)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", function(d) { return color(d); });
+
+  legend.append("text")
+      .attr("x", width + 110)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .style("font-family", "sans-serif")
+      .style("font-size", 11)
+      .text(function(d) {return d; });
+
+  legend.transition().duration(500).delay(function(d,i){ return 1300 + 100 * i; }).style("opacity","1");
+
+
+</script>

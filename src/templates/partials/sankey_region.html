@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head align='center'>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['sankey']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Percentage');
+        data.addRows([
+          [ 'Chemistry', 'Midwest', 5 ],
+          [ 'Chemistry', 'West (exc. CA)', 1 ],
+          [ 'Chemistry', 'South/Southeast', 3 ],
+          [ 'Chemistry', 'Central CA', 6 ],
+          [ 'Chemistry', 'LA', 8 ],
+          ['Chemistry', 'Northeast', 0],
+          [ 'Chemistry', 'Socal (exc. LA)', 4 ],
+          [ 'Chemistry', 'International', 5 ],
+          [ 'Haas', 'Midwest', 5 ],
+          [ 'Haas', 'West (exc. CA)', 1 ],
+          [ 'Haas', 'South/Southeast', 3 ],
+          [ 'Haas', 'Central CA', 6 ],
+          [ 'Haas', 'LA', 8 ],
+          [ 'Haas', 'Socal (exc. LA)', 4 ],
+          ['Haas', 'Northeast', 11],
+          [ 'Haas', 'International', 5 ],
+          [ 'CNR', 'Midwest', 1 ],
+          [ 'CNR', 'West (exc. CA)', 5 ],
+          [ 'CNR', 'South/Southeast', 4 ],
+          [ 'CNR', 'Northeast', 3],
+          [ 'CNR', 'Central CA', 10 ],
+          [ 'CNR', 'LA', 5 ],
+          [ 'CNR', 'Socal (exc. LA)', 5 ],
+          [ 'CNR', 'International', 5 ],
+          [ 'L&S', 'Midwest', 2 ],
+          [ 'L&S', 'West (exc. CA)', 5 ],
+          [ 'L&S', 'South/Southeast', 3 ],
+          [ 'L&S', 'Northeast', 6],
+          [ 'L&S', 'Central CA', 6 ],
+          [ 'L&S', 'LA', 6 ],
+          [ 'L&S', 'Socal (exc. LA)', 4 ],
+          [ 'L&S', 'International', 4 ],
+          [ 'Env Design', 'Midwest', 0 ],
+          [ 'Env Design', 'West (exc. CA)', 2 ],
+          [ 'Env Design', 'South/Southeast', 0 ],
+          [ 'Env Design', 'Central CA', 1 ],
+          [ 'Env Design', 'Northeast', 2],
+          [ 'Env Design', 'LA', 12 ],
+          [ 'Env Design', 'Socal (exc. LA)', 3 ],
+          [ 'Env Design', 'International', 4 ],
+          [ 'Engineering', 'Midwest', 0 ],
+          [ 'Engineering', 'West (exc. CA)', 2 ],
+          [ 'Engineering', 'South/Southeast', 0 ],
+          [ 'Engineering', 'Northeast', 4],
+          [ 'Engineering', 'Central CA', 1 ],
+          [ 'Engineering', 'LA', 12 ],
+          [ 'Engineering', 'Socal (exc. LA)', 3 ],
+          [ 'Engineering', 'International', 4 ],
+        ]);
+
+        // Sets chart options.
+    		var options = {
+    			width: 900,
+    			height: 475,
+			sankey: {
+                               link: {
+                                 color: {fill: '#aec6cf'}
+                                },
+			      node: { label: {
+  				   fontSize: 12,
+				    },
+				    nodePadding: 25,
+				    width: 10,
+					  } },
+    				      };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_region'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="sankey_region" style="width: 900px; height: 475px;"></div>
+  </body>
+
+</html>

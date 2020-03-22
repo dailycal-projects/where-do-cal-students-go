@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head align='center'>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['sankey']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Weight');
+        data.addRows([
+          [ 'Haas School', 'Investment Banking', 72 ],
+          [ 'Haas School', 'Financial/Business Analyst', 65 ],
+          [ 'Haas School', 'Consultant', 66 ],
+          [ 'Haas School', 'Product Manager', 10 ],
+          [ 'Haas School', 'Software Engineer', 10 ],
+          [ 'Haas School', 'Analyst', 68 ],
+          [ 'Haas School', 'Auditor', 19 ],
+        ]);
+
+        // Sets chart options.
+        var options = {
+          width: 900,
+		    sankey: {
+                    link: {
+                      color: {fill: '#aec6cf'}
+                      },
+        },
+          height: 200
+        };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="sankey_basic" style="width: 900px; height: 300px;"></div>
+  </body>
+
+</html>

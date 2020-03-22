@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head align='center'>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['sankey']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        var econ =1
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Weight');
+        data.addRows([
+          [ 'Economics', 'Researcher', 37 / econ ],
+          [ 'Economics', 'Teacher', 0 / econ],
+          [ 'Economics', 'Analyst', 60 / econ],
+          [ 'Economics', 'Accountant', 11 / econ],
+          [ 'Economics', 'Consultant', 40 / econ],
+          [ 'Economics', 'Legal Assistant', 72 /econ ],
+          [ 'Economics', 'Financial/Business Analyst', 68 /econ ],
+          [ 'Economics', 'Software Engineer', 29 /econ ],
+          [ 'Economics', 'Data Analyst', 15 / econ],
+          [ 'Political Sci', 'Researcher', 6 / econ ],
+          [ 'Political Sci', 'Teacher', 12 / econ],
+          [ 'Political Sci', 'Analyst', 0 / econ],
+          [ 'Political Sci', 'Accountant', 0 / econ],
+          [ 'Political Sci', 'Consultant', 0 / econ],
+          [ 'Political Sci', 'Legal Assistant', 25 /econ ],
+          [ 'Political Sci', 'Financial/Business Analyst', 0 /econ ],
+          [ 'Political Sci', 'Software Engineer', 0 /econ ],
+          [ 'Political Sci', 'Data Analyst', 0 / econ],
+          [ 'Political Econ', 'Researcher', 0 / econ ],
+          [ 'Political Econ', 'Teacher', 0 / econ],
+          [ 'Political Econ', 'Analyst', 60 / econ],
+          [ 'Political Econ', 'Accountant', 11 / econ],
+          [ 'Political Econ', 'Consultant', 40 / econ],
+          [ 'Political Econ', 'Legal Assistant', 72 /econ ],
+          [ 'Political Econ', 'Financial/Business Analyst', 68 /econ ],
+          [ 'Political Econ', 'Software Engineer', 29 /econ ],
+          [ 'Political Econ', 'Data Analyst', 15 / econ],
+        ]);
+
+        // Sets chart options.
+        var options = {
+          width: 900,
+		    sankey: {
+                    link: {
+                      color: {fill: '#aec6cf'}
+                      },
+        },
+        };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="sankey_basic" style="width: 900px; height: 300px;"></div>
+  </body>
+
+</html>
