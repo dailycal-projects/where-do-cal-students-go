@@ -208,10 +208,13 @@
 
         width = Math.min((pageWidth) - 50, 900);
         nodePadding = 14
-        if (width < 900) {
-          height = 6 * width;
+        if (width < 500) {
+          height = 5 * width;
+          nodePadding = 18
+            } else if (width < 900) {
+              height = 2 * width;
           nodePadding = 20
-        }
+            }
         else {height = 1200;}
         // Sets chart options.
         var options = {
@@ -235,8 +238,8 @@
       }
     </script>
   </head>
-  <div class='panel'>
+  <body>
     <div id="sankey_grad"></div>
-  </div>
+  </body>
 
 </html>
