@@ -118,3 +118,16 @@ figure.no-gutters-phone {
 		margin-bottom: 0;
 	}
 }
+/* Mobile styles */
+
+@media screen and (min-width: 850px) {
+  .panel {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .panel {
+    width: 80%;
+  }
+}
