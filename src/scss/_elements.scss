@@ -120,19 +120,22 @@ h4,
 h5 {
   font-family: $sans;
   margin: 0 auto 8px;
-  //max-width: 100%;
-  //text-align: center;
+  text-align: left;
   max-width: 600px;
   overflow-wrap: break-word;
 
-  + p{
+  @media (max-width: $width-medium) {
+    margin-left: 15px;
+  }
+
+  + p {
     margin-top: 0px;
   }
 
   &.serif{
     font-family: $tisa;
 
-    + p{
+    + p {
       margin-top: 5px;
     }
   }

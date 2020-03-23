@@ -171,10 +171,17 @@
 ["Transportation","Inactive",1],
         ]);
 
+        width = Math.min((pageWidth) - 50, 1100);
+        nodePadding = 14
+        if (width < 1100) {
+          height = width;
+          nodePadding = 20
+        }
+        else {height = 800;}
         // Sets chart options.
         var options = {
-          width: 1100,
-          height: 600,
+          width: width,
+          height: height,
 		    sankey: {
                     link: {
                       color: {fill: '#aec6cf'}
@@ -185,12 +192,14 @@
 
         // Instantiates and draws our chart, passing in some options.
         var chart = new google.visualization.Sankey(document.getElementById('sankey_startup'));
+            if (width > 800) {
         chart.draw(data, options);
+            }
       }
     </script>
   </head>
   <body>
-    <div id="sankey_startup" style="width: 1100px; height: 600px;"></div>
+    <div id="sankey_startup"></div>
   </body>
 
 </html>

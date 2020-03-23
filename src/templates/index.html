@@ -53,7 +53,8 @@ the paths recent alumni take after graduation. If you're curious about how many 
       <body>
 {% include "partials/bar.html" %}</br>
       </body>
-      <h2 align='left'> Rising tuition, falling debt </h2>
+
+      <h2> Rising tuition, falling debt </h2>
       <article class="container">
         <p align='left'>
 The cost of attending a four-year public university jumped 35% over the past decade, according to the College Board.
@@ -104,7 +105,7 @@ The average financial aid package per student rose from $21,587 in the school ye
       </article>
 
 
-      <h2 align='left'> Where do Bears live after graduating? </h2>
+      <h2> Where do Bears live after graduating? </h2>
     <article class="container">
       <p align='left'>Next, we investigate the geographic distribution of the new graduating class.
         we broke the data down by college to visualize the differing paths of new grads based
@@ -112,9 +113,9 @@ The average financial aid package per student rose from $21,587 in the school ye
         they may end up in different places.
       </p>
       </article>
-      <body align='center'>
+      <div class='panel' align='center'>
        {% include "partials/bar_bay.html" %}</br>
-      </body>
+      </div>
     <article class="container">
       <p align='left'>Unsurprisingly, the vast majority of new grads decide to stay in the Bay Area.
         As seen in the chart above, over half of graduates from all six schools stay in the Bay Area.
@@ -141,7 +142,7 @@ The average financial aid package per student rose from $21,587 in the school ye
 
       The percentage of alums moving internationally is fairly constant across the college at around 5%.</p>
       </article>
-      <h2 align='left'> What jobs do Bears work after graduation? </h2></br>
+      <h2> What jobs do Bears work after graduation? </h2></br>
 
           <figure class="no-gutters-phone">
       <img src="images/graduation.jpg"></br>
@@ -171,21 +172,21 @@ The average financial aid package per student rose from $21,587 in the school ye
     <h3 style='font-size:20px;'> Life Science Majors </h3>
       {% include "partials/job_line.html" %}
       <center>{% include "partials/sankey_bio.html" %}</center>
-      </br></br></br>
+      <section></section>
     <h3 style='font-size:20px;'> Political/Legal Majors </h3>
       {% include "partials/job_line.html" %}
       <center>{% include "partials/sankey_pol.html" %}</center>
-      </br></br>
+      <section></section>
     <h3 style='font-size:20px;'> Business/Econ Majors </h3>
       {% include "partials/job_line.html" %}
       <center>{% include "partials/sankey_bus.html" %}</center>
-      </br></br></br>
+      <section></section>
     <h3 style='font-size:20px;'> Computational/Math Majors </h3>
       {% include "partials/job_line.html" %}
       <center>{% include "partials/sankey_tech.html" %}</center>
-      </br></br></br>
+      <section></section>
 
-      <h2 align='left'> Bears in Grad School </h2>
+      <h2> Bears in Grad School </h2>
     <article class="container">
       <p align='left'>
         Have you ever wondered how many of your peers go on to get a PhD?
@@ -194,16 +195,14 @@ The average financial aid package per student rose from $21,587 in the school ye
     </article>
       {% include "partials/grad_line.html" %}
       <center>{% include "partials/sankey_grad.html" %}</center>
-      </br>
-      </br>
-      </br>
+      <section></section>
 
 
-      <h2 align='left'> Berkeley Entrepreneurs </h2></br>
+      <h2> Berkeley Entrepreneurs </h2></br>
 
           <figure class="no-gutters-phone">
-      <img src="images/house.jpg"></br>
-      	<figcaption class="figcaption">The House is a venture capital fund investing in Berkeley's top alumni, faculty, and student startups, founded by former Bears.
+            <img src="images/house.jpg">
+      	    <figcaption class="figcaption">The House is a venture capital fund investing in Berkeley's top alumni, faculty, and student startups, founded by former Bears.
           <figcredit>TechCrunch</figcaption>
           </figure>
 
@@ -216,8 +215,13 @@ The average financial aid package per student rose from $21,587 in the school ye
         and whether they remain active today.
       </p>
       </article>
+
       {% include "partials/startup_line.html" %}
       <center>{% include "partials/sankey_startup.html" %}</center>
+          <figure class="no-gutters-phone">
+            <img src="images/cal_startups.png">
+      	<figcaption class="figcaption">Study by the Bay Area Economic Council.<figcredit> </figcaption>
+          </figure>
 
     <article class="container">
       <p align='left'>

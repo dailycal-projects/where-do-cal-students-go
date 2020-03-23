@@ -39,10 +39,16 @@
         ]);
 
         // Sets chart options.
+        width = Math.min((pageWidth) - 50, 600);
+        if (width < 600) {
+          height = 1.5 * width;
+        }
+        else {height = 500;}
+
         var options = {
 
-          width: 600,
-          height: 400,
+          width: width,
+          height: height,
 		    sankey: {
                     link: {
                       color: {fill: '#aec6cf'}
@@ -57,13 +63,13 @@
         };
 
         // Instantiates and draws our chart, passing in some options.
-        var chart = new google.visualization.Sankey(document.getElementById('sankey_new'));
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_small'));
         chart.draw(data, options);
       }
     </script>
   </head>
   <body>
-    <div id="sankey_new" style="width: 600px; height: 400px;"></div>
+    <div id="sankey_small"></div>
   </body>
 
 </html>

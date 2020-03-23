@@ -62,10 +62,15 @@
           [ 'Engineering', 'International', 4 ],
         ]);
 
+        width = Math.min((pageWidth) - 50, 900);
+        if (width < 600) {
+          height = 1.5 * width;
+        }
+        else {height = 500;}
         // Sets chart options.
     		var options = {
-    			width: 900,
-    			height: 475,
+    			width: width,
+    			height: height,
 			sankey: {
                                link: {
                                  color: {fill: '#aec6cf'}
@@ -85,7 +90,7 @@
     </script>
   </head>
   <body>
-    <div id="sankey_region" style="width: 900px; height: 475px;"></div>
+    <div id="sankey_region"></div>
   </body>
 
 </html>

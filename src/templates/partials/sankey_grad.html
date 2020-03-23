@@ -206,16 +206,27 @@
 ["Data Science","JD",0],
         ]);
 
+        width = Math.min((pageWidth) - 50, 900);
+        nodePadding = 14
+        if (width < 900) {
+          height = 6 * width;
+          nodePadding = 20
+        }
+        else {height = 1200;}
         // Sets chart options.
         var options = {
-          width: 900,
-          height: 1200,
+          width: width,
+          height: height,
 		    sankey: {
                     link: {
                       color: {fill: '#aec6cf'}
                       },
-                    node: {label: {fontSize: 12}},
-                }
+			      node: { label: {
+  				   fontSize: 12,
+                                   fontName : 'Lato',
+				    },
+                                nodePadding: nodePadding,
+					  } },
         };
 
         // Instantiates and draws our chart, passing in some options.
@@ -224,8 +235,8 @@
       }
     </script>
   </head>
-  <body>
-    <div id="sankey_grad" style="width: 900; height: 1200px;"></div>
-  </body>
+  <div class='panel'>
+    <div id="sankey_grad"></div>
+  </div>
 
 </html>

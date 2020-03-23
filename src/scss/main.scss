@@ -10,30 +10,8 @@
 @import 'icons';
 
 @import 'elements';
-@import 'refer';
-@import 'navigation';
-@import 'header';
-@import 'footer';
-@import 'photos';
-@import 'buttons';
-@import 'ads';
-@import 'comments';
-@import 'share';
-@import 'credits';
-@import 'graphics';
-
-@import 'bootstrap';
-
-@import 'breakpoints';
-@import 'mixins';
-@import 'colors/base';
-@import 'colors/diverging';
-@import 'colors/qualitative';
-@import 'colors/sequential';
-@import 'fonts';
-@import 'icons';
-
-@import 'elements';
+@import 'line_graph';
+@import 'nerd-box';
 @import 'refer';
 @import 'navigation';
 @import 'header';
@@ -86,16 +64,31 @@
     }
 }
 
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 25px;
+    padding: 4px;
+    font: 12px sans-serif;
+    background: white;
+    border: 0px;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
 hr {
 	max-width: 600px;
-}
-
-figure.no-gutters-phone {
-	max-width: 900px;
-}
-
-#full-list {
-	margin: 0 auto;
 }
 
 .callout-box {
@@ -106,18 +99,6 @@ figure.no-gutters-phone {
 	max-width: 900px;
 }
 
-.nerd-box {
-	background: rgba($dc-blue, 0.1);
-	padding: 20px;
-	max-width: 600px;
-	margin: 0 auto 30px auto;
-
-	p {
-		font-family: $sans;
-		font-size: 12px;
-		margin-bottom: 0;
-	}
-}
 /* Mobile styles */
 
 @media screen and (min-width: 850px) {

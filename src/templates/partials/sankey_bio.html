@@ -36,14 +36,20 @@
         ]);
 
         // Sets chart options.
+        width = Math.min((pageWidth) - 50, 600);
+        if (width < 600) {
+          height = 1.5 * width;
+        }
+        else {height = 500;}
     		var options = {
-    			width: 600,
-    			height: 400,
+    			width: width,
+    			height: height,
 			sankey: {
                                link: {
                                  color: {fill: '#aec6cf'}
                                 },
 			      node: { label: {
+                                   fontName: 'Lato',
   				   fontSize: 12,
 				    },
 				    nodePadding: 25,
@@ -58,7 +64,7 @@
     </script>
   </head>
   <body>
-    <div id="sankey_bio" style="width: 600px; height: 400px;"></div>
+    <div id="sankey_bio"></div>
   </body>
 
 </html>
