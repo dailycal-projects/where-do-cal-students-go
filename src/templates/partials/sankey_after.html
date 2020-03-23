@@ -40,13 +40,20 @@
 
         // Sets chart options.
         var options = {
-          width: 700,
+
+          width: 600,
           height: 400,
 		    sankey: {
                     link: {
                       color: {fill: '#aec6cf'}
                       },
-                }
+			      node: { label: {
+  				   fontSize: 12,
+                                   fontFamily: "sans-serif",
+				    },
+				    nodePadding: 25,
+				    width: 10,
+					  } },
         };
 
         // Instantiates and draws our chart, passing in some options.
@@ -56,7 +63,7 @@
     </script>
   </head>
   <body>
-    <div id="sankey_new" style="width: 700px; height: 400px;"></div>
+    <div id="sankey_new" style="width: 600px; height: 400px;"></div>
   </body>
 
 </html>

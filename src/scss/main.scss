@@ -21,3 +21,100 @@
 @import 'share';
 @import 'credits';
 @import 'graphics';
+
+@import 'bootstrap';
+
+@import 'breakpoints';
+@import 'mixins';
+@import 'colors/base';
+@import 'colors/diverging';
+@import 'colors/qualitative';
+@import 'colors/sequential';
+@import 'fonts';
+@import 'icons';
+
+@import 'elements';
+@import 'refer';
+@import 'navigation';
+@import 'header';
+@import 'footer';
+@import 'photos';
+@import 'buttons';
+@import 'ads';
+@import 'comments';
+@import 'share';
+@import 'credits';
+@import 'graphics';
+
+.dc-correction {
+	font-style: italic;
+	font-size: 14px;
+}
+
+#sponsor-table {
+	display: none;
+	max-width: 600px;
+	margin: 0 auto;
+
+	//font-family: $sans;
+
+	.recipient {
+		margin-bottom: 30px;
+	}
+
+	table {
+		width: 100%;
+
+		.right {
+			text-align: right;
+		}
+	}
+}
+
+.list-helper-text {
+	display: none;
+}
+
+@media (max-width: $width-medium) {
+    #sponsor-table {
+    	display: block;
+    	margin-top: 40px;
+    }
+
+    .list-helper-text {
+    	display: block;
+    }
+}
+
+hr {
+	max-width: 600px;
+}
+
+figure.no-gutters-phone {
+	max-width: 900px;
+}
+
+#full-list {
+	margin: 0 auto;
+}
+
+.callout-box {
+	background: rgba($dc-blue, 0.1);
+	padding: 30px 0;
+	font-family: $sans;
+	text-align: center;
+	max-width: 900px;
+}
+
+.nerd-box {
+	background: rgba($dc-blue, 0.1);
+	padding: 20px;
+	max-width: 600px;
+	margin: 0 auto 30px auto;
+
+	p {
+		font-family: $sans;
+		font-size: 12px;
+		margin-bottom: 0;
+	}
+}
