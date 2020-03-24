@@ -7,11 +7,11 @@
 <script>
 
 width = Math.min((pageWidth) - 50, 900);
-var svg = d3.select("body").append("svg")
+var sankey_grad = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", 40)
 
-svg.append("text")
+sankey_grad.append("text")
     .attr("x", 0)
     .attr("y", 20)
     .attr("font-size", "18px")
@@ -20,7 +20,7 @@ svg.append("text")
     .attr("fill", "black")
     .text("Major")
 
-svg.append("text")
+sankey_grad.append("text")
     .attr("x", width - 150)
     .attr("y", 20)
     .attr("font-size", "18px")
@@ -29,7 +29,7 @@ svg.append("text")
     .attr("fill", "black")
     .text("Graduate Degree")
 
-svg.append("line")
+sankey_grad.append("line")
     .attr("x1", 0)
     .attr("y1", 30)
     .attr("x2", width)

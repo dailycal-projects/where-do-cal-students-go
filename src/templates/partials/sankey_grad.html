@@ -207,7 +207,7 @@
         ]);
 
         width = Math.min((pageWidth) - 50, 900);
-        nodePadding = 14
+        nodePadding = 12
         if (width < 500) {
           height = 5 * width;
           nodePadding = 18
@@ -229,7 +229,8 @@
                                    fontName : 'BentonSans',
 				    },
                                 nodePadding: nodePadding,
-					  } },
+			  } },
+                        tooltip: {textStyle: {fontName: 'BentonSans'}},
         };
 
         // Instantiates and draws our chart, passing in some options.
@@ -241,5 +242,4 @@
   <body>
     <div id="sankey_grad"></div>
   </body>
-
 </html>
