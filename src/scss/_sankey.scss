@@ -5,7 +5,7 @@ sankey_small {
 
   @media only screen and (max-width: 650px) {
     width: 100% - 50;
-    height: 1.5 * width
+    height: calc(width * 1.5);
   }
 }
 
@@ -15,7 +15,7 @@ sankey_bio {
 
   @media only screen and (max-width: 650px) {
     width: 100% - 50;
-    height: 1.5 * width
+    height: calc(width * 1.5);
   }
 }
 
@@ -25,7 +25,7 @@ sankey_bus {
 
   @media only screen and (max-width: 650px) {
     width: 100% - 50;
-    height: 1.5 * width
+    height: calc(width * 1.5);
   }
 }
 
@@ -35,7 +35,7 @@ sankey_pol {
 
   @media only screen and (max-width: 650px) {
     width: 100% - 50;
-    height: 1.5 * width
+    height: calc(width * 1.5);
   }
 }
 
@@ -45,7 +45,7 @@ sankey_tech {
 
   @media only screen and (max-width: 650px) {
     width: 100% - 50;
-    height: 1.5 * width
+    height: calc(width * 1.5);
   }
 }
 
@@ -55,16 +55,6 @@ sankey_region {
 
   @media only screen and (max-width: 650px) {
     width: 100% - 50;
-    height: 1.5 * width
-  }
-}
-
-sankey_grad {
-  width: 900px;
-  height: 1200px;
-
-  @media only screen and (max-width: 950px) {
-    width: 100% - 50;
-    height: 6 * width
+    height: calc(width * 1.5);
   }
 }
