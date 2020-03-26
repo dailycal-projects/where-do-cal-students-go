@@ -63,14 +63,13 @@
           [ 'Engineering', 'International', 4 ],
         ]);
 
-        var chart = new google.visualization.Sankey(document.getElementById('sankey_region'));
         var parent = document.getElementById('sankey_region');
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_region'));
 
         function redraw() {
           width = 890;
           height = 500;
           if (parent.clientWidth < 900) { width = parent.clientWidth; height = 700;}
-
           // Sets chart options.
     	  	var options = {
     	  		width: width,

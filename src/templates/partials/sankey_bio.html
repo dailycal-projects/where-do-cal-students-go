@@ -35,35 +35,32 @@
 ["Integrative Bio","Technology",2],
         ]);
 
-        var parent = document.getElementById('sankey_bio');
-        var chart = new google.visualization.Sankey(document.getElementById('sankey_bio'));
         // Sets chart options.
-
-        function redraw() {
-          width = parent.clientWidth - 150;
-          height = 500;
-          // Sets chart options.
-    	  	var options = {
-    	  		width: width,
-    	  		height: height,
-	  		sankey: {
-                                 link: {
-                                   color: {fill: '#aec6cf'}
-                                  },
-	  		      node: { label: {
-  	  			   fontSize: 12,
-                                     fontName: "BentonSans",
-	  			    },
-	  			    nodePadding: 25,
-	  			    width: 10,
-	  				  } },
-                          tooltip: {textStyle: {fontName: 'BentonSans'}},
-    	  			      };
-              chart.draw(data, options);
+        width = Math.min((pageWidth) - 50, 600);
+        if (width < 600) {
+          height = 1.5 * width;
         }
+        else {height = 500;}
+    		var options = {
+    			width: width,
+    			height: height,
+			sankey: {
+                               link: {
+                                 color: {fill: '#aec6cf'}
+                                },
+			      node: { label: {
+                                   fontName: 'BentonSans',
+  				   fontSize: 12,
+				    },
+				    nodePadding: 25,
+				    width: 10,
+					  } },
+                        tooltip: {textStyle: {fontName: 'BentonSans'}},
+    				      };
 
-      redraw()
-      window.addEventListener("resize", redraw);
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_bio'));
+        chart.draw(data, options);
       }
     </script>
   </head>
