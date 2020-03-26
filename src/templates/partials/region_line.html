@@ -6,12 +6,12 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-width = 900;
-var sankey_region = d3.select("body").append("svg")
+width = Math.min((pageWidth) - 50, 900);
+var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", 40)
 
-sankey_region.append("text")
+svg.append("text")
     .attr("x", 0)
     .attr("y", 20)
     .attr("font-size", "18px")
@@ -20,7 +20,7 @@ sankey_region.append("text")
     .attr("fill", "black")
     .text("Department")
 
-sankey_region.append("text")
+svg.append("text")
     .attr("x", width - 60)
     .attr("y", 20)
     .attr("font-size", "18px")
@@ -29,7 +29,7 @@ sankey_region.append("text")
     .attr("fill", "black")
     .text("Region")
 
-sankey_region.append("line")
+svg.append("line")
     .attr("x1", 0)
     .attr("y1", 30)
     .attr("x2", width)
