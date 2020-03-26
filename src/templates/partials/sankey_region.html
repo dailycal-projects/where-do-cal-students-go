@@ -66,9 +66,8 @@
         var parent = document.getElementById('sankey_region');
         var chart = new google.visualization.Sankey(document.getElementById('sankey_region'));
 
-        function redraw() {
-          width = 890;
-          height = 500;
+        width = 890;
+        height = 500;
           if (parent.clientWidth < 900) { width = parent.clientWidth; height = 700;}
           // Sets chart options.
     	  	var options = {
@@ -88,11 +87,8 @@
                           tooltip: {textStyle: {fontName: 'BentonSans'}},
     	  			      };
               chart.draw(data, options);
-        }
-
-      window.addEventListener("resize", redraw);
-      redraw()
       }
+      window.addEventListener("resize", drawChart);
     </script>
   </head>
   <body>
