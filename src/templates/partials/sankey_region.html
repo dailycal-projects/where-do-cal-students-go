@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <body></body>
   <head align='center'>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -62,37 +63,40 @@
           [ 'Engineering', 'International', 4 ],
         ]);
 
-        // Instantiates and draws our chart, passing in some options.
-        var chart2 = new google.visualization.Sankey(document.getElementById('#sankey_region'));
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_region'));
+        var parent = document.getElementById('sankey_region');
 
-        width = Math.min((chart2.clientWidth) - 50, 900);
-        if (width < 600) {
-          height = 1.5 * width;
+        function redraw() {
+          width = 890;
+          height = 500;
+          if (parent.clientWidth < 900) { width = parent.clientWidth; height = 700;}
+
+          // Sets chart options.
+    	  	var options = {
+    	  		width: width,
+    	  		height: height,
+	  		sankey: {
+                                 link: {
+                                   color: {fill: '#aec6cf'}
+                                  },
+	  		      node: { label: {
+  	  			   fontSize: 12,
+                                     fontName: "BentonSans",
+	  			    },
+	  			    nodePadding: 25,
+	  			    width: 10,
+	  				  } },
+                          tooltip: {textStyle: {fontName: 'BentonSans'}},
+    	  			      };
+              chart.draw(data, options);
         }
-        else {height = 500;}
-        // Sets chart options.
-    		var options = {
-    			width: width,
-    			height: height,
-			sankey: {
-                               link: {
-                                 color: {fill: '#aec6cf'}
-                                },
-			      node: { label: {
-  				   fontSize: 12,
-                                   fontName: "BentonSans",
-				    },
-				    nodePadding: 25,
-				    width: 10,
-					  } },
-                        tooltip: {textStyle: {fontName: 'BentonSans'}},
-    				      };
 
-        chart2.draw(data, options);
+      redraw()
+      window.addEventListener("resize", redraw);
       }
     </script>
   </head>
   <body>
-    <div id="#sankey_region"></div>
+    <div id="sankey_region"></div>
   </body>
 </html>

@@ -206,36 +206,40 @@
 ["Data Science","JD",0],
         ]);
 
-        width = Math.min((pageWidth) - 50, 900);
-        nodePadding = 12
-        if (width < 500) {
-          height = 5 * width;
-          nodePadding = 18
-            } else if (width < 900) {
-              height = 2 * width;
-          nodePadding = 20
-            }
-        else {height = 1200;}
-        // Sets chart options.
-        var options = {
-          width: width,
-          height: height,
-		    sankey: {
-                    link: {
-                      color: {fill: '#aec6cf'}
-                      },
-			      node: { label: {
-  				   fontSize: 12,
-                                   fontName : 'BentonSans',
-				    },
-                                nodePadding: nodePadding,
-			  } },
-                        tooltip: {textStyle: {fontName: 'BentonSans'}},
-        };
-
-        // Instantiates and draws our chart, passing in some options.
         var chart = new google.visualization.Sankey(document.getElementById('sankey_grad'));
-        chart.draw(data, options);
+        var parent = document.getElementById('sankey_grad');
+
+        function redraw() {
+          width = 890;
+          height = 1200;
+          nodePadding = 14;
+          if (parent.clientWidth < 900) {
+            width = parent.clientWidth;
+            height=2200;
+            nodePadding = 25;
+          }
+          // Sets chart options.
+    	  	var options = {
+    	  		width: width,
+    	  		height: height,
+	  		sankey: {
+                                 link: {
+                                   color: {fill: '#aec6cf'}
+                                  },
+	  		      node: { label: {
+  	  			   fontSize: 12,
+                                     fontName: "BentonSans",
+	  			    },
+	  			    nodePadding: nodePadding,
+	  			    width: 10,
+	  				  } },
+                          tooltip: {textStyle: {fontName: 'BentonSans'}},
+    	  			      };
+              chart.draw(data, options);
+        }
+
+      redraw()
+      window.addEventListener("resize", redraw);
       }
     </script>
   </head>
