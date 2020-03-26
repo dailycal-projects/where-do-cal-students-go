@@ -62,7 +62,10 @@
           [ 'Engineering', 'International', 4 ],
         ]);
 
-        width = Math.min((pageWidth) - 50, 900);
+        // Instantiates and draws our chart, passing in some options.
+        var chart2 = new google.visualization.Sankey(document.getElementById('#sankey_region'));
+
+        width = Math.min((chart2.clientWidth) - 50, 900);
         if (width < 600) {
           height = 1.5 * width;
         }
@@ -85,8 +88,6 @@
                         tooltip: {textStyle: {fontName: 'BentonSans'}},
     				      };
 
-        // Instantiates and draws our chart, passing in some options.
-        var chart2 = new google.visualization.Sankey(document.getElementById('#sankey_region'));
         chart2.draw(data, options);
       }
     </script>
