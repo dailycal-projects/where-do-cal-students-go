@@ -3,7 +3,7 @@
 
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
-<center style='font-family:BentonSans'>What degrees draw Bears after college?</br></br></center>
+<center style='font-family:BentonSans'>Which graduate degrees draw students from this college?</br></br></center>
 <button onclick="update(data1)">Letters & Sci</button>
 <button onclick="update(data5)">Chemistry</button>
 <button onclick="update(data3)">Natural Resources</button>
@@ -20,7 +20,7 @@
 // set the dimensions and margins of the graph
 var width = 450
     height = 450
-    margin = 40
+    margin = 80
 
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
 var radius = Math.min(width, height) / 2 - margin
@@ -33,13 +33,13 @@ var svg = d3.select("#my_dataviz")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-var data1 = {"Masters": 55, "PhD": 29, "MD":7, "JD": 9}
-var data2 = {"Masters": 58, "PhD": 42, "MD":0, "JD": 0}
-var data3 = {"Masters": 47, "PhD": 20, "MD":17, "JD": 17}
-var data4 = {"Masters": 100, "PhD": 0, "MD":0, "JD": 0}
-var data5 = {"Masters": 0, "PhD": 100, "MD":0, "JD": 0}
-var data6 = {"Masters": 100, "PhD": 0, "MD":0, "JD": 0}
-var data7 = {"Masters": 53, "PhD": 35, "MD": 5, "JD": 7}
+var data1 = {"values": {"Masters": 55, "PhD": 29, "MD":7, "JD": 9}, "name": "Letters & Sci"}
+var data2 = {"values": {"Masters": 58, "PhD": 42, "MD":0, "JD": 0}, "name": "Engineering"}
+var data3 = {"values": {"Masters": 47, "PhD": 20, "MD":17, "JD": 17}, "name": "Natural Resources"}
+var data4 = {"values": {"Masters": 100, "PhD": 0, "MD":0, "JD": 0}, "name": "Env Design"}
+var data5 = {"values": {"Masters": 0, "PhD": 100, "MD":0, "JD": 0}, "name": "Chemistry"}
+var data6 = {"values": {"Masters": 100, "PhD": 0, "MD":0, "JD": 0}, "name": "Haas"}
+var data7 = {"values": {"Masters": 53, "PhD": 35, "MD":5, "JD": 7}, "name": "Overall"}
 
 var div = d3.select("#my_dataviz").append("div")
     .attr("class", "tooltip")
@@ -53,12 +53,22 @@ var color_pie = d3.scaleOrdinal()
 
 // A function that create / update the plot for a given variable:
 function update(data) {
+length = data.name.length;
+svg.selectAll("text.title").remove();
+svg.append("text")
+    .attr("class", "title")
+    .attr("x", 0 - (length * 3.2))
+    .attr("y", 0)
+    .attr("font-size", "14px")
+    .attr("font-family", "Lato")
+    .attr("fill", "black")
+    .text(data.name);
 
   // Compute the position of each group on the pie:
   var pie = d3.pie()
     .value(function(d) {return d.value; })
     .sort(function(a, b) { console.log(a) ; return d3.ascending(a.key, b.key);} ) // This make sure that group order remains the same in the pie chart
-  var data_ready = pie(d3.entries(data))
+  var data_ready = pie(d3.entries(data.values))
 
   // map to data
   var u = svg.selectAll("path")
@@ -70,7 +80,7 @@ function update(data) {
     .append('path')
     .merge(u)
     .attr('d', d3.arc()
-      .innerRadius(100)
+      .innerRadius(60)
       .outerRadius(radius)
     )
     .attr('fill', function(d){ return(color_pie(d.data.key)) })
