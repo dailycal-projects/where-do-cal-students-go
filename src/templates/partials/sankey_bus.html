@@ -40,12 +40,11 @@
 ["Economics","Reporter",1],
         ]);
 
+        var parent = document.getElementById('sankey_bus');
         // Sets chart options.
-        width = Math.min((pageWidth) - 50, 600);
-        if (width < 600) {
-          height = 1.5 * width;
-        }
-        else {height = 500;}
+        width = 600;
+        height = 500;
+        if (parent.clientWidth < 600) { width = parent.clientWidth; height = 700;}
 
     		var options = {
     			width: width,
@@ -66,7 +65,9 @@
         // Instantiates and draws our chart, passing in some options.
         var chart = new google.visualization.Sankey(document.getElementById('sankey_bus'));
         chart.draw(data, options);
+        parent.parentElement.style.height = height;
       }
+      window.addEventListener("resize", drawChart);
     </script>
   </head>
   <body>

@@ -121,3 +121,10 @@
   font-size: 16px;
   font-family: "BentonSans";
 }
+
+@media screen and (max-width: 600px) {
+  .button {
+    font-size: 13px;
+    padding: 10px 20px;
+  }
+}

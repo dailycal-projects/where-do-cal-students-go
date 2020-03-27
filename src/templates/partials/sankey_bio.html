@@ -3,6 +3,7 @@
   <head align='center'>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+
       google.charts.load('current', {'packages':['sankey']});
       google.charts.setOnLoadCallback(drawChart);
 
@@ -35,12 +36,12 @@
 ["Integrative Bio","Technology",2],
         ]);
 
+        var parent = document.getElementById('sankey_bio');
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_bio'));
         // Sets chart options.
-        width = Math.min((pageWidth) - 50, 600);
-        if (width < 600) {
-          height = 1.5 * width;
-        }
-        else {height = 500;}
+        width = 600;
+        height = 500;
+        if (parent.clientWidth < 600) { width = parent.clientWidth; height = 700;}
     		var options = {
     			width: width,
     			height: height,
@@ -59,9 +60,9 @@
     				      };
 
         // Instantiates and draws our chart, passing in some options.
-        var chart = new google.visualization.Sankey(document.getElementById('sankey_bio'));
         chart.draw(data, options);
       }
+      window.addEventListener("resize", drawChart);
     </script>
   </head>
   <body>

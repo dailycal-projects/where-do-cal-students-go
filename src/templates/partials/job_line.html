@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+
 <body>
 </body>
 <!-- Load in the d3 library -->
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-width = Math.min((pageWidth) - 50, 600);
+width = 600;
+if (pageWidth < 900) {
+    width = pageWidth + 100;
+}
+if (pageWidth < 600) {
+    width = pageWidth + 50;
+}
+
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", 40)

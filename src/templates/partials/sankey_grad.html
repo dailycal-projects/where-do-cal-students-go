@@ -208,14 +208,13 @@
 
         var parent = document.getElementById('sankey_grad');
         var chart = new google.visualization.Sankey(document.getElementById('sankey_grad'));
-
-        function redraw() {
           width = 890;
           height = 1200;
           nodePadding = 14;
           if (parent.clientWidth < 900) {
             width = parent.clientWidth;
-            height=2200;
+            height = 2000;
+            parent.clientHeight = height;
             nodePadding = 25;
           }
           // Sets chart options.
@@ -237,10 +236,7 @@
     	  			      };
               chart.draw(data, options);
         }
-
-      redraw()
-      window.addEventListener("resize", redraw);
-      }
+      window.addEventListener("resize", drawChart);
     </script>
   </head>
   <body>

@@ -5,7 +5,6 @@
     <script type="text/javascript">
       google.charts.load('current', {'packages':['sankey']});
       google.charts.setOnLoadCallback(drawChart);
-
       function drawChart() {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'From');
@@ -38,15 +37,14 @@
           [ 'Haas', 'Other', 2 ],
         ]);
 
+        var parent = document.getElementById('sankey_small');
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_small'));
         // Sets chart options.
-        width = Math.min((pageWidth) - 50, 600);
-        if (width < 600) {
-          height = 1.5 * width;
-        }
-        else {height = 500;}
+        width = 800;
+        height = 500;
+        if (parent.clientWidth < 900) { width = parent.clientWidth; height = 700;}
 
         var options = {
-
           width: width,
           height: height,
 		    sankey: {
@@ -62,11 +60,11 @@
 					  } },
                         tooltip: {textStyle: {fontName: 'BentonSans'}},
         };
-
         // Instantiates and draws our chart, passing in some options.
-        var chart = new google.visualization.Sankey(document.getElementById('sankey_small'));
         chart.draw(data, options);
       }
+
+      window.addEventListener("resize", drawChart);
     </script>
   </head>
   <body>
