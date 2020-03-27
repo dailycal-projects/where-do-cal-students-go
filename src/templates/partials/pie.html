@@ -10,6 +10,7 @@
 <button onclick="update(data4)">Env Design</button>
 <button onclick="update(data6)">Haas</button>
 <button onclick="update(data2)">Engineering</button>
+<button onclick="update(data7)">Overall</button>
 
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
@@ -38,6 +39,7 @@ var data3 = {"Masters": 47, "PhD": 20, "MD":17, "JD": 17}
 var data4 = {"Masters": 100, "PhD": 0, "MD":0, "JD": 0}
 var data5 = {"Masters": 0, "PhD": 100, "MD":0, "JD": 0}
 var data6 = {"Masters": 100, "PhD": 0, "MD":0, "JD": 0}
+var data7 = {"Masters": 53, "PhD": 35, "MD": 5, "JD": 7}
 
 var div = d3.select("#my_dataviz").append("div")
     .attr("class", "tooltip")
