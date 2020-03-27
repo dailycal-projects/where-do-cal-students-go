@@ -144,7 +144,6 @@ var groupData = [
                     .style("top", (d3.event.pageY - 15) + "px")
                     .style("font-size", "10px")
                     .style("font-family", "BentonSans");
-
             })
             .on("mouseout", function(d) {
                 d3.select(this).style("fill", color(d.grpName))
@@ -202,6 +201,5 @@ svg.append("text")
       .text(function(d) {return d; });
 
   legend.transition().duration(500).delay(function(d,i){ return 1300 + 100 * i; }).style("opacity","1");
-
 
 </script>
