@@ -5,13 +5,6 @@
 }
 
 @media screen and (max-width: 900px) {
-  #sankey_bio {
-    svg {
-      zoom: 1;
-    }
-  }
-}
-@media screen and (max-width: 900px) {
   #sankey_region {
     height: 550px;
     svg {
@@ -36,21 +29,7 @@
   }
 }
 @media screen and (max-width: 900px) {
-  #sankey_pol {
-    svg {
-      zoom: 1;
-    }
-  }
-}
-@media screen and (max-width: 900px) {
-  #sankey_tech {
-    svg {
-      zoom: 1;
-    }
-  }
-}
-@media screen and (max-width: 900px) {
-  #sankey_bus {
+  #sankey_pol, #sankey_tech, #sankey_bus, #sankey_bio {
     height: 500px;
     svg {
       zoom: 1;
@@ -59,37 +38,14 @@
 }
 
 @media screen and (max-width: 600px) {
-  #sankey_pol {
+  #sankey_pol, #sankey_tech, #sankey_bus, #sankey_bio {
     height: 450px;
     svg {
       zoom: 0.6;
     }
   }
 }
-@media screen and (max-width: 600px) {
-  #sankey_tech {
-    height: 450px;
-    svg {
-      zoom: 0.6;
-    }
-  }
-}
-@media screen and (max-width: 600px) {
-  #sankey_bus {
-    height: 450px;
-    svg {
-      zoom: 0.6;
-    }
-  }
-}
-@media screen and (max-width: 600px) {
-  #sankey_bio {
-    height: 450px;
-    svg {
-      zoom: 0.6;
-    }
-  }
-}
+
 @media screen and (max-width: 600px) {
   #sankey_grad {
   height: 1650px;
