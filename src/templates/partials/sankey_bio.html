@@ -6,39 +6,6 @@
 <!-- Load in the d3 library -->
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
-
-width = 600;
-
-var svg = d3.select("#bio_line").append("svg")
-    .attr("width", width)
-    .attr("height", 40)
-
-svg.append("text")
-    .attr("x", 0)
-    .attr("y", 20)
-    .attr("font-size", "18px")
-    .attr("font-family", "Lato")
-    .attr("font-weight", 600)
-    .attr("fill", "black")
-    .text("Major")
-
-svg.append("text")
-    .attr("x", width - 60)
-    .attr("y", 20)
-    .attr("font-size", "18px")
-    .attr("font-family", "Lato")
-    .attr("font-weight", 600)
-    .attr("fill", "black")
-    .text("Job")
-
-svg.append("line")
-    .attr("x1", 0)
-    .attr("y1", 30)
-    .attr("x2", width)
-    .attr("y2", 30)
-    .attr("stroke", "grey")
-    .attr("stroke-opacity", 0.5)
-    .attr("stroke-width", 1.5)
 </script>
 
   <head align='center'>
@@ -47,6 +14,7 @@ svg.append("line")
 
       google.charts.load('current', {'packages':['sankey']});
       google.charts.setOnLoadCallback(drawChart);
+      var svg_bio = d3.select("#bio_line").append("svg");
 
       function drawChart() {
         var data = new google.visualization.DataTable();
@@ -79,6 +47,46 @@ svg.append("line")
 
         var parent = document.getElementById('sankey_bio');
         var chart = new google.visualization.Sankey(document.getElementById('sankey_bio'));
+        width = Math.min(600, pageWidth);
+        if (parent.clientWidth < 600) { width = parent.clientWidth; height = 700;}
+
+    svg_bio
+    .attr("width", width)
+    .attr("height", 40);
+
+svg_bio.selectAll("text.bio").remove();
+svg_bio.selectAll("line.bio").remove();
+
+svg_bio.append("text")
+    .attr("class", "bio")
+    .attr("x", 0)
+    .attr("y", 20)
+    .attr("font-size", "18px")
+    .attr("font-family", "Lato")
+    .attr("font-weight", 600)
+    .attr("fill", "black")
+    .text("Major");
+
+svg_bio.append("text")
+    .attr("class", "bio")
+    .attr("x", width - 60)
+    .attr("y", 20)
+    .attr("font-size", "18px")
+    .attr("font-family", "Lato")
+    .attr("font-weight", 600)
+    .attr("fill", "black")
+    .text("Job");
+
+svg_bio.append("line")
+    .attr("class", "bio")
+    .attr("x1", 0)
+    .attr("y1", 30)
+    .attr("x2", width)
+    .attr("y2", 30)
+    .attr("stroke", "grey")
+    .attr("stroke-opacity", 0.5)
+    .attr("stroke-width", 1.5);
+
         // Sets chart options.
         width = 600;
         height = 500;
@@ -99,11 +107,10 @@ svg.append("line")
 					  } },
                         tooltip: {textStyle: {fontName: 'BentonSans'}},
     				      };
-
         // Instantiates and draws our chart, passing in some options.
         chart.draw(data, options);
       }
-      window.addEventListener("resize", drawChart);
+            window.addEventListener("resize", drawChart);
     </script>
   </head>
   <body>

@@ -58,10 +58,11 @@ var groupData = [
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-    let pageWidth = window.innerWidth;
+    let pageWidth = $(window).width();
 
     var margin = {top: 25, right: 150, bottom: 50, left: 75},
-    width = 900 - margin.left - margin.right;
+    width = pageWidth - margin.left - margin.right;
+    width = Math.min(pageWidth, 900 - margin.left - margin.right);
 
     if (width < 300) {
       width = 300;
