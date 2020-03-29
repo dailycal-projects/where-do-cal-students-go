@@ -39,9 +39,9 @@
 
 @media screen and (max-width: 600px) {
   #sankey_pol, #sankey_tech, #sankey_bus, #sankey_bio {
-    height: 450px;
+    height: 475px;
     svg {
-      zoom: 0.6;
+      zoom: 0.7;
     }
   }
 }
@@ -57,9 +57,9 @@
 
 @media screen and (max-width: 600px) {
   #sankey_small {
-  height: 400px;
+  height: 500px;
     svg {
-      zoom: 0.6;
+      zoom: 0.75;
     }
   }
 }
