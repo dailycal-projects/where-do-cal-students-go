@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
+  <body>
+    <div id='grad_line'></div>
+  </body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+</script>
   <head align='center'>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['sankey']});
       google.charts.setOnLoadCallback(drawChart);
+      var svg_grad = d3.select("#grad_line").append("svg");
 
       function drawChart() {
         var data = new google.visualization.DataTable();
@@ -206,17 +213,64 @@
 ["Data Science","JD",0],
         ]);
 
-        var parent = document.getElementById('sankey_grad');
-        var chart = new google.visualization.Sankey(document.getElementById('sankey_grad'));
-          width = 890;
-          height = 1200;
-          nodePadding = 14;
-          if (parent.clientWidth < 900) {
-            width = parent.clientWidth;
-            height = 2000;
-            parent.clientHeight = height;
-            nodePadding = 25;
-          }
+var parent = document.getElementById('sankey_grad');
+var chart = new google.visualization.Sankey(document.getElementById('sankey_grad'));
+width = Math.min(pageWidth, 900);
+height = 1200;
+nodePadding = 14;
+if (parent.clientWidth < 900) {
+    width = parent.clientWidth;
+    height = 2000;
+    parent.clientHeight = height;
+    nodePadding = 25;
+}
+
+svg_grad
+    .attr("width", width)
+    .attr("height", 40);
+
+svg_grad.selectAll("text.grad").remove();
+svg_grad.selectAll("line.grad").remove();
+
+svg_grad.append("text")
+    .attr("class", "grad")
+    .attr("x", 0)
+    .attr("y", 20)
+    .attr("font-size", "18px")
+    .attr("font-family", "Lato")
+    .attr("font-weight", 600)
+    .attr("fill", "black")
+    .text("Major")
+
+svg_grad.append("text")
+    .attr("class", "grad")
+    .attr("x", width - 150)
+    .attr("y", 20)
+    .attr("font-size", "18px")
+    .attr("font-family", "Lato")
+    .attr("font-weight", 600)
+    .attr("fill", "black")
+    .text("Graduate Degree")
+
+svg_grad.append("line")
+    .attr("class", "grad")
+    .attr("x1", 0)
+    .attr("y1", 30)
+    .attr("x2", width)
+    .attr("y2", 30)
+    .attr("stroke", "grey")
+    .attr("stroke-opacity", 0.5)
+    .attr("stroke-width", 1.5)
+
+width = Math.min(pageWidth, 900);
+height = 1200;
+nodePadding = 14;
+if (parent.clientWidth < 900) {
+    width = parent.clientWidth;
+    height = 2000;
+    parent.clientHeight = height;
+    nodePadding = 25;
+}
           // Sets chart options.
     	  	var options = {
     	  		width: width,

@@ -6,44 +6,14 @@
 <!-- Load in the d3 library -->
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
-
-width = 600;
-var svg = d3.select("#pol_line").append("svg")
-    .attr("width", width)
-    .attr("height", 40)
-
-svg.append("text")
-    .attr("x", 0)
-    .attr("y", 20)
-    .attr("font-size", "18px")
-    .attr("font-family", "Lato")
-    .attr("font-weight", 600)
-    .attr("fill", "black")
-    .text("Major")
-
-svg.append("text")
-    .attr("x", width - 60)
-    .attr("y", 20)
-    .attr("font-size", "18px")
-    .attr("font-family", "Lato")
-    .attr("font-weight", 600)
-    .attr("fill", "black")
-    .text("Job")
-
-svg.append("line")
-    .attr("x1", 0)
-    .attr("y1", 30)
-    .attr("x2", width)
-    .attr("y2", 30)
-    .attr("stroke", "grey")
-    .attr("stroke-opacity", 0.5)
-    .attr("stroke-width", 1.5)
 </script>
+
   <head align='center'>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['sankey']});
       google.charts.setOnLoadCallback(drawChart);
+      var svg_pol = d3.select("#pol_line").append("svg");
 
       function drawChart() {
         var data = new google.visualization.DataTable();
@@ -101,9 +71,48 @@ svg.append("line")
 ["Sociology","Military",0],
         ]);
 
-        var parent = document.getElementById('sankey_pol');
+var parent = document.getElementById('sankey_pol');
+var chart = new google.visualization.Sankey(document.getElementById('sankey_pol'));
+width = Math.min(600, pageWidth);
+if (parent.clientWidth < 600) { width = parent.clientWidth; height = 700;}
+  svg_pol
+    .attr("width", width)
+    .attr("height", 40)
+
+svg_pol.selectAll("text.pol").remove();
+svg_pol.selectAll("line.pol").remove();
+
+svg_pol.append("text")
+    .attr("class", "pol")
+    .attr("x", 0)
+    .attr("y", 20)
+    .attr("font-size", "18px")
+    .attr("font-family", "Lato")
+    .attr("font-weight", 600)
+    .attr("fill", "black")
+    .text("Major")
+
+svg_pol.append("text")
+    .attr("class", "pol")
+    .attr("x", width - 60)
+    .attr("y", 20)
+    .attr("font-size", "18px")
+    .attr("font-family", "Lato")
+    .attr("font-weight", 600)
+    .attr("fill", "black")
+    .text("Job")
+
+svg_pol.append("line")
+    .attr("class", "pol")
+    .attr("x1", 0)
+    .attr("y1", 30)
+    .attr("x2", width)
+    .attr("y2", 30)
+    .attr("stroke", "grey")
+    .attr("stroke-opacity", 0.5)
+    .attr("stroke-width", 1.5)
         // Sets chart options.
-          width = 600;
+        width = 600;
         height = 500;
         if (parent.clientWidth < 600) { width = parent.clientWidth; height = 700;}
     		var options = {
@@ -122,8 +131,6 @@ svg.append("line")
                         tooltip: {textStyle: {fontName: 'BentonSans'}},
     				      };
 
-        // Instantiates and draws our chart, passing in some options.
-        var chart = new google.visualization.Sankey(document.getElementById('sankey_pol'));
         chart.draw(data, options);
       }
       window.addEventListener("resize", drawChart);

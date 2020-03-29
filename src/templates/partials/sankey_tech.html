@@ -6,44 +6,13 @@
 <!-- Load in the d3 library -->
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
-
-width = 600;
-var svg = d3.select("#tech_line").append("svg")
-    .attr("width", width)
-    .attr("height", 40)
-
-svg.append("text")
-    .attr("x", 0)
-    .attr("y", 20)
-    .attr("font-size", "18px")
-    .attr("font-family", "Lato")
-    .attr("font-weight", 600)
-    .attr("fill", "black")
-    .text("Major")
-
-svg.append("text")
-    .attr("x", width - 60)
-    .attr("y", 20)
-    .attr("font-size", "18px")
-    .attr("font-family", "Lato")
-    .attr("font-weight", 600)
-    .attr("fill", "black")
-    .text("Job")
-
-svg.append("line")
-    .attr("x1", 0)
-    .attr("y1", 30)
-    .attr("x2", width)
-    .attr("y2", 30)
-    .attr("stroke", "grey")
-    .attr("stroke-opacity", 0.5)
-    .attr("stroke-width", 1.5)
 </script>
   <head align='center'>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['sankey']});
       google.charts.setOnLoadCallback(drawChart);
+      var svg_tech = d3.select("#tech_line").append("svg")
 
       function drawChart() {
         var data = new google.visualization.DataTable();
@@ -89,7 +58,47 @@ svg.append("line")
 ["Applied Math","Business/Finance Analyst",19],
         ]);
 
-        var parent = document.getElementById('sankey_tech');
+var parent = document.getElementById('sankey_tech');
+var chart = new google.visualization.Sankey(document.getElementById('sankey_tech'));
+width = 600;
+if (parent.clientWidth < 600) { width = parent.clientWidth; height = 700;}
+
+svg_tech.selectAll("text.tech").remove();
+svg_tech.selectAll("line.tech").remove();
+
+  svg_tech
+    .attr("width", width)
+    .attr("height", 40)
+
+svg_tech.append("text")
+    .attr("class", "tech")
+    .attr("x", 0)
+    .attr("y", 20)
+    .attr("font-size", "18px")
+    .attr("font-family", "Lato")
+    .attr("font-weight", 600)
+    .attr("fill", "black")
+    .text("Major")
+
+svg_tech.append("text")
+    .attr("class", "tech")
+    .attr("x", width - 60)
+    .attr("y", 20)
+    .attr("font-size", "18px")
+    .attr("font-family", "Lato")
+    .attr("font-weight", 600)
+    .attr("fill", "black")
+    .text("Job")
+
+svg_tech.append("line")
+    .attr("class", "tech")
+    .attr("x1", 0)
+    .attr("y1", 30)
+    .attr("x2", width)
+    .attr("y2", 30)
+    .attr("stroke", "grey")
+    .attr("stroke-opacity", 0.5)
+    .attr("stroke-width", 1.5)
         // Sets chart options.
         width = 600;
         height = 500;
@@ -112,7 +121,6 @@ svg.append("line")
     				      };
 
         // Instantiates and draws our chart, passing in some options.
-        var chart = new google.visualization.Sankey(document.getElementById('sankey_tech'));
         chart.draw(data, options);
       }
       window.addEventListener("resize", drawChart);

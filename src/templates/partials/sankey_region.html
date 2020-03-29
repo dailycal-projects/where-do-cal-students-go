@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <body></body>
+  <body>
+    <div id='region_line'></div>
+  </body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
   <head align='center'>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['sankey']});
       google.charts.setOnLoadCallback(drawChart);
+      var svg_region = d3.select("#region_line").append("svg");
 
       function drawChart() {
         var data = new google.visualization.DataTable();
@@ -65,6 +69,41 @@
 
         var parent = document.getElementById('sankey_region');
         var chart = new google.visualization.Sankey(document.getElementById('sankey_region'));
+        width = Math.min(pageWidth, 800);
+        if (parent.clientWidth < 900) { width = parent.clientWidth; height = 700;}
+
+        svg_region
+            .attr("width", width)
+            .attr("height", 40)
+        svg_region.selectAll("text.region").remove();
+        svg_region.selectAll("line.region").remove();
+        svg_region.append("text")
+            .attr("class", "region")
+            .attr("x", 0)
+            .attr("y", 20)
+            .attr("font-size", "18px")
+            .attr("font-family", "Lato")
+            .attr("font-weight", 600)
+            .attr("fill", "black")
+            .text("Department")
+        svg_region.append("text")
+            .attr("class", "region")
+            .attr("x", width - 60)
+            .attr("y", 20)
+            .attr("font-size", "18px")
+            .attr("font-family", "Lato")
+            .attr("font-weight", 600)
+            .attr("fill", "black")
+            .text("Region")
+        svg_region.append("line")
+            .attr("class", "region")
+            .attr("x1", 0)
+            .attr("y1", 30)
+            .attr("x2", width)
+            .attr("y2", 30)
+            .attr("stroke", "grey")
+            .attr("stroke-opacity", 0.5)
+            .attr("stroke-width", 1.5)
 
         width = 800;
         height = 500;
