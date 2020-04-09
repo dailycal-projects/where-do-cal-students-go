@@ -107,6 +107,8 @@
 
         width = 800;
         height = 500;
+        var colors = ["#338A6C", "#E35660", "#479BD1", "#8F679C",
+            "#F4803F", "#FED23B"]
           if (parent.clientWidth < 900) { width = parent.clientWidth; height = 700;}
           // Sets chart options.
     	  	var options = {
@@ -116,7 +118,7 @@
                                  link: {
                                    color: {fill: '#aec6cf'}
                                   },
-	  		      node: { label: {
+			      node: { colors: colors, label: {
   	  			   fontSize: 14,
                                      fontName: "BentonSans",
 	  			    },

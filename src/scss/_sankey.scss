@@ -29,8 +29,17 @@
   }
 }
 @media screen and (max-width: 900px) {
-  #sankey_pol, #sankey_tech, #sankey_bus, #sankey_bio {
+  #sankey_pol, #sankey_tech, #sankey_bio {
     height: 500px;
+    svg {
+      zoom: 1;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #sankey_bus {
+    height: 600px;
     svg {
       zoom: 1;
     }

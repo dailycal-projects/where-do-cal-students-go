@@ -262,6 +262,8 @@ svg_grad.append("line")
     .attr("stroke-opacity", 0.5)
     .attr("stroke-width", 1.5)
 
+        var colors = ["#338A6C", "#E35660", "#479BD1", "#8F679C",
+            "#F4803F", "#FED23B"]
 width = Math.min(pageWidth, 900);
 height = 1200;
 nodePadding = 14;
@@ -279,7 +281,7 @@ if (parent.clientWidth < 900) {
                                  link: {
                                    color: {fill: '#aec6cf'}
                                   },
-	  		      node: { label: {
+			      node: { colors: colors, label: {
   	  			   fontSize: 13,
                                      fontName: "BentonSans",
 	  			    },

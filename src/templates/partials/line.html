@@ -78,6 +78,7 @@ svg.append("g")
 // 9. Append the path, bind the data, and call the line generator 
 svg.append("path")
     .datum(dataset) // 10. Binds data to the line 
+    .style("stroke", "#F4803F")
     .attr("class", "line") // Assign a class for styling 
     .attr("d", line); // 11. Calls the line generator 
 
@@ -88,7 +89,7 @@ svg.selectAll(".dot")
     .attr("class", "dot") // Assign a class for styling
     .attr("cx", function(d, i) { return xScale(i) })
     .attr("cy", function(d) { return yScale(d.y) })
-    .style("fill", "orange")
+    .style("fill", "#F4803F")
     .attr("r", 5)
     .on("mouseover", function(d) {
         d3.select(this).style("fill", d3.rgb("orange").darker(2))

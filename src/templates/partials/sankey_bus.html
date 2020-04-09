@@ -93,6 +93,8 @@ svg_bus.append("line")
         width = 600;
         height = 600;
         if (parent.clientWidth < 600) { width = parent.clientWidth; height = 700;}
+        var colors = ["#338A6C", "#E35660", "#479BD1", "#8F679C",
+            "#F4803F", "#FED23B"]
     		var options = {
     			width: width,
                         height: height,
@@ -100,7 +102,7 @@ svg_bus.append("line")
                                link: {
                                  color: {fill: '#aec6cf'}
                                 },
-			      node: { label: {
+			      node: { colors: colors, label: {
   				   fontSize: 14,
                                    fontName : 'BentonSans',
 				    },
