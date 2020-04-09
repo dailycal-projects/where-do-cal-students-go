@@ -1,6 +1,6 @@
-# test
+# Where Do Cal Students Go?
 
-| Title | test |
+| Title | Where Do Cal Students Go? |
 |-|-|
 | Developer    | [Alex Zhao](axyzhao@berkeley.edu) |
 | Link | [http://projects.dailycal.org/2020/test/](http://projects.dailycal.org/2020/test/) |

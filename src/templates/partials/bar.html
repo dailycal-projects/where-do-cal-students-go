@@ -79,7 +79,7 @@ var groupData = [
 
     var yAxis = d3.axisLeft().scale(y);
 
-    var color = d3.scaleOrdinal().range(["#c23b22", "#8e1600", "#80CEE1",  "#779ecb"]);
+    var color = d3.scaleOrdinal().range(["c23b22", "#8e1600", "#80CEE1",  "#779ecb"]);
 
 
     var svg = d3.select('body').append("svg")
@@ -186,13 +186,13 @@ svg.append("text")
       .style("opacity","0");
 
   legend.append("rect")
-      .attr("x", width + 120)
+      .attr("x", width - 10)
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", function(d) { return color(d); });
 
   legend.append("text")
-      .attr("x", width + 110)
+      .attr("x", width + 150)
       .attr("y", 9)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
