@@ -90,6 +90,9 @@ svg_bus.append("line")
     .attr("stroke-opacity", 0.5)
     .attr("stroke-width", 1.5);
 
+        width = 600;
+        height = 600;
+        if (parent.clientWidth < 600) { width = parent.clientWidth; height = 700;}
     		var options = {
     			width: width,
                         height: height,
@@ -98,10 +101,10 @@ svg_bus.append("line")
                                  color: {fill: '#aec6cf'}
                                 },
 			      node: { label: {
-  				   fontSize: 12,
+  				   fontSize: 14,
                                    fontName : 'BentonSans',
 				    },
-                                nodePadding: 15,
+                                nodePadding: 20,
 					  } },
                         tooltip: {textStyle: {fontName: 'BentonSans'}},
     				      };
