@@ -11,6 +11,7 @@
 
 @import 'elements';
 @import 'sankey';
+@import 'story';
 @import 'sankey_lines';
 @import 'line_graph';
 @import 'nerd-box';
@@ -77,6 +78,9 @@ div.tooltip {
     border: 0px;
     border-radius: 10px;
     pointer-events: none;
+}
+.axis {
+  font: 20px;
 }
 
 .axis path,

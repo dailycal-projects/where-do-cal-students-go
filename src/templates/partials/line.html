@@ -92,7 +92,7 @@ svg.selectAll(".dot")
     .style("fill", "#F4803F")
     .attr("r", 5)
     .on("mouseover", function(d) {
-        d3.select(this).style("fill", d3.rgb("orange").darker(2))
+        d3.select(this).style("fill", d3.rgb("#F4803F").darker(2))
         div.transition()
           .duration(200)
           .style("opacity", .9)
@@ -103,7 +103,7 @@ svg.selectAll(".dot")
               .style("font-family", "BentonSans");
           })
     .on("mouseout", function(d) {
-        d3.select(this).style("fill", "orange")
+        d3.select(this).style("fill", "#F4803F")
         div.transition()
           .duration(300)
           .style("opacity", 0);
