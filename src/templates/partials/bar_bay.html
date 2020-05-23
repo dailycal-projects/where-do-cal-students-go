@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<link rel="stylesheet" href="https://use.typekit.net/mfo3lll.css">
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script>
 
@@ -78,7 +79,7 @@ var groupData = [
 
     svg.append("g")
     .style("font-size", "14px")
-    .style("font-family", "BentonSans")
+    .style("font-family", "benton-sans")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
@@ -88,7 +89,7 @@ var groupData = [
 
     svg.append("g")
         .style("font-size", "14px")
-       .style("font-family", "BentonSans")
+       .style("font-family", "benton-sans")
       .attr("class", "y axis")
       .style('opacity','0')
       .call(yAxis)
@@ -134,7 +135,7 @@ var groupData = [
                     .style("left", (d3.event.pageX + 10) + "px")
                     .style("top", (d3.event.pageY - 15) + "px")
                     .style("font-size", "18px")
-                    .style("font-family", "BentonSans");
+                    .style("font-family", "benton-sans");
             })
             .on("mouseout", function(d) {
                 d3.select(this).style("fill", color_bay(d.grpName))
@@ -155,6 +156,6 @@ svg.append("text")
         .attr("y", 0 - (margin.top / 1.5))
         .attr("text-anchor", "middle")
         .style("font-size", "20px")
-        .style("font-family", "BentonSans")
+        .style("font-family", "benton-sans")
         .text("% New Grads Staying in Bay Area (By College)");
 </script>

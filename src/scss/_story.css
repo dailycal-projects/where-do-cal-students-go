@@ -12,7 +12,7 @@
 .story > p {
     font-size: 14px;
     text-align: justify;
-    font-family: "BentonSans";
+    font-family: "benton-sans";
     line-height: 24px;
     margin-bottom: 20px; /*TODO*/
 }
@@ -60,13 +60,13 @@
 }
 
 .story h2 {
-    font-family: "TiemposHeadline-Medium";
+    font-family: "tiempos";
     font-size: 22px;
     font-weight: normal;
 }
 
-.story p ~ h2 { 
-    font-family: "TiemposHeadline-Medium";
+.story p ~ h2 {
+    font-family: "tiempos";
     font-size: 22px;
     font-weight: normal;
     margin-top: -10px;
@@ -79,7 +79,7 @@
     letter-spacing: 1px;
     text-align: right;
     margin-right: 10px;
-    font-family: "BentonSansMedium";
+    font-family: "benton-sans";
 }
 
 .story > p ~ ol {

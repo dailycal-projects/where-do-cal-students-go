@@ -113,13 +113,15 @@
   }
 }
 
-.button {
+button {
   border: none;
-  padding: 15px 32px;
+  padding: 3px 8px;
+  background-color: #b3cfdd;
   text-align: center;
   display: inline-block;
   font-size: 16px;
-  font-family: "BentonSans";
+  border-radius: 8px;
+  font-family: "benton-sans";
 }
 
 @media screen and (max-width: 600px) {

@@ -5,6 +5,7 @@
 </body>
 <!-- Load in the d3 library -->
 <script src="https://d3js.org/d3.v4.min.js"></script>
+<link rel="stylesheet" href="https://use.typekit.net/mfo3lll.css">
 <script>
 </script>
 
@@ -101,13 +102,13 @@ svg_bio.append("line")
                                  color: {fill: '#aec6cf'}
                                 },
 			      node: { colors: colors, label: {
-                                   fontName: 'BentonSans',
+                                   fontName: 'benton-sans',
   				   fontSize: 14,
 				    },
 				    nodePadding: 25,
 				    width: 10,
 					  } },
-                        tooltip: {textStyle: {fontName: 'BentonSans'}},
+                        tooltip: {textStyle: {fontName: 'benton-sans'}},
     				      };
         // Instantiates and draws our chart, passing in some options.
         chart.draw(data, options);
