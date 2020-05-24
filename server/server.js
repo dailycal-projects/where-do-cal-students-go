@@ -3,13 +3,13 @@ const fs = require('fs-extra');
 const open = require('open');
 const express = require('express');
 const nunjucks = require('nunjucks');
+const webpack = require('webpack');
+const webpackMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 const nunjucksSettings = require('./nunjucks-settings.js');
 const context = require('./context.js');
 
 const router = require('./router.js');
-const webpack = require('webpack');
-const webpackMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('../webpack-dev.config.js');
 const { argv } = require('yargs');
 
@@ -28,6 +28,7 @@ env.addFilter('markdown', nunjucksSettings.markdownFilter);
 app.use(express.static('src'));
 app.use('/images', express.static('dist/images'));
 app.use('/data', express.static('dist/data'));
+app.use('/fonts', express.static('dist/fonts'));
 
 
 module.exports = {
@@ -50,15 +51,14 @@ module.exports = {
   },
   renderIndex: () => {
     process.env.NODE_ENV = 'production';
-    
-    const ctx = context.getContext();
-    
-    ctx['env'] = process.env.NODE_ENV;
 
-    app.render('index.html', ctx, function(err, html) {
+    const ctx = context.getContext();
+
+    ctx.env = process.env.NODE_ENV;
+
+    app.render('index.html', ctx, (err, html) => {
       fs.writeFileSync('dist/index.html', html);
       console.log('dist/index.html written');
     });
-  }
-}
-
+  },
+};

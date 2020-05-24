@@ -18,6 +18,5 @@ $sans: $lato;
 
 @font-face {
   font-family: "tiempos";
-  src: local("Tiempos Headline-Medium"),
-  url("Tiempos Headline-Medium.otf");
+  src: url("../fonts/TiemposHeadline-Medium.otf") format("opentype");
 }

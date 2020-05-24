@@ -18,12 +18,12 @@
 }
 
 .story strong {
-    font-family: "BentonSansMedium";
+    font-family: "benton-sans";
     font-weight: normal;
 }
 
 .story b {
-    font-family: "BentonSansMedium";
+    font-family: "benton-sans";
     font-weight: normal;
 }
 
@@ -63,6 +63,14 @@
     font-family: "tiempos";
     font-size: 22px;
     font-weight: normal;
+}
+
+.story p ~ h1 {
+    font-family: "tiempos";
+    font-size: 36px;
+    font-weight: normal;
+    margin-top: -10px;
+    margin-bottom: -5px;
 }
 
 .story p ~ h2 {
