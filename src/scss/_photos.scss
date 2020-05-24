@@ -14,7 +14,7 @@ figure {
 
   @media (max-width: $width-small) {
     &.no-gutters-phone{
-      width: calc(100%);
+      width: calc(100% + 15px);
       max-width: 900px;
       margin-left: -15px;
 
@@ -35,7 +35,7 @@ figure.no-gutters-phone {
 
 figcaption {
   color: $medium-gray;
-  font-family: $proxima;
+  font-family: 'benton-sans';
   font-size: .875em;
   line-height: 1.2em;
   padding: 5px;
