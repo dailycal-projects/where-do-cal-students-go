@@ -14,7 +14,7 @@ figure {
 
   @media (max-width: $width-small) {
     &.no-gutters-phone{
-      width: calc(100% + 30px);
+      width: calc(100%);
       max-width: 900px;
       margin-left: -15px;
 

@@ -2,6 +2,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="https://use.typekit.net/mfo3lll.css">
 <script src="https://d3js.org/d3.v5.min.js"></script>
+<div id="line"></div>
 <script>
 
 var groupData = [
@@ -55,15 +56,20 @@ var groupData = [
                  }
                   ];
 
-    var div = d3.select("body").append("div")
+    var div = d3.select("#line").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
     let pageWidth = $(window).width();
 
-    var margin = {top: 25, right: 175, bottom: 50, left: 75},
+    var margin = {top: 25, right: 200, bottom: 50, left: 75},
     width = pageWidth - margin.left - margin.right;
     width = Math.min(pageWidth, 900 - margin.left - margin.right);
+
+    font_size = "18px"
+    if (width < 600) {
+      font_size = "14px";
+    }
 
     if (width < 300) {
       width = 300;
@@ -83,7 +89,7 @@ var groupData = [
     var color = d3.scaleOrdinal().range(["#AB4B50", "#ED9791", "#215775", "#479BD1"]);
 
 
-    var svg = d3.select('body').append("svg")
+    var svg = d3.select("#line").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -97,7 +103,7 @@ var groupData = [
     y.domain([0, d3.max(groupData, function(key) { return d3.max(key.values, function(d) { return d.grpValue; }); })]);
 
     svg.append("g")
-      .style("font-size", "18px")
+      .style("font-size", font_size)
       .style("font-family", "benton-sans")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
