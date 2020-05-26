@@ -97,7 +97,7 @@ svg.selectAll(".dot")
         div.transition()
           .duration(200)
           .style("opacity", .9)
-          let p = "$" + d.y.toString()
+          let p = "$" + d3.format(",")(d.y).toString()
           div.html(p)
               .style("left", (d3.event.pageX + 10) + "px")
               .style("top", (d3.event.pageY - 15) + "px")
@@ -116,5 +116,5 @@ svg.append("text")
         .attr("text-anchor", "middle")
         .style("font-size", "20px")
         .style("font-family", "benton-sans")
-        .text("Average financial debt (graduating class)");
+        .text("Average Financial Debt of UC Berkeley Graduates (Classes of 2011-2016)");
 </script>
