@@ -8,50 +8,50 @@
 var groupData = [
                  { key: "2014-15", values:
                                               [
-                                                {grpName:'Out-of-State (Off Campus)', grpValue:51778},
-                                                {grpName:'Out-of-State (On Campus)', grpValue:57234},
-                                                {grpName:'In-State (Off Campus)', grpValue:28900},
-                                                {grpName:'In-State (On Campus)', grpValue:34356},
+                                                {grpName:'Out-of-State (Off Campus Housing)', grpValue:51778},
+                                                {grpName:'Out-of-State (On Campus Housing)', grpValue:57234},
+                                                {grpName:'In-State (Off Campus Housing)', grpValue:28900},
+                                                {grpName:'In-State (On Campus Housing)', grpValue:34356},
                                               ]
                  },
                  { key: "2015-16", values:
                                               [
-                                                {grpName:'Out-of-State (Off Campus)', grpValue:54593},
-                                                {grpName:'Out-of-State (On Campus)', grpValue:59963},
-                                                {grpName:'In-State (Off Campus)', grpValue:29885},
-                                                {grpName:'In-State (On Campus)', grpValue:35255},
+                                                {grpName:'Out-of-State (Off Campus Housing)', grpValue:54593},
+                                                {grpName:'Out-of-State (On Campus Housing)', grpValue:59963},
+                                                {grpName:'In-State (Off Campus Housing)', grpValue:29885},
+                                                {grpName:'In-State (On Campus Housing)', grpValue:35255},
                                               ]
                  },
                  { key: "2016-17", values:
                                               [
-                                                {grpName:'Out-of-State (Off Campus)', grpValue:57155},
-                                                {grpName:'Out-of-State (On Campus)', grpValue:63051},
-                                                {grpName:'In-State (Off Campus)', grpValue:30473},
-                                                {grpName:'In-State (On Campus)', grpValue:36369},
+                                                {grpName:'Out-of-State (Off Campus Housing)', grpValue:57155},
+                                                {grpName:'Out-of-State (On Campus Housing)', grpValue:63051},
+                                                {grpName:'In-State (Off Campus Housing)', grpValue:30473},
+                                                {grpName:'In-State (On Campus Housing)', grpValue:36369},
                                               ]
                  },
                  { key: "2017-18", values:
                                               [
-                                                {grpName:'Out-of-State (Off Campus)', grpValue:61261},
-                                                {grpName:'Out-of-State (On Campus)', grpValue:65003},
-                                                {grpName:'In-State (Off Campus)', grpValue:33247},
-                                                {grpName:'In-State (On Campus)', grpValue:36989},
+                                                {grpName:'Out-of-State (Off Campus Housing)', grpValue:61261},
+                                                {grpName:'Out-of-State (On Campus Housing)', grpValue:65003},
+                                                {grpName:'In-State (Off Campus Housing)', grpValue:33247},
+                                                {grpName:'In-State (On Campus Housing)', grpValue:36989},
                                               ]
                  },
                  { key: "2018-19", values:
                                               [
-                                                {grpName:'Out-of-State (Off Campus)', grpValue:63288},
-                                                {grpName:'Out-of-State (On Campus)', grpValue:67058},
-                                                {grpName:'In-State (Off Campus)', grpValue:34296},
-                                                {grpName:'In-State (On Campus)', grpValue:38066},
+                                                {grpName:'Out-of-State (Off Campus Housing)', grpValue:63288},
+                                                {grpName:'Out-of-State (On Campus Housing)', grpValue:67058},
+                                                {grpName:'In-State (Off Campus Housing)', grpValue:34296},
+                                                {grpName:'In-State (On Campus Housing)', grpValue:38066},
                                               ]
                  },
                  { key: "2019-20", values:
                                               [
-                                                {grpName:'Out-of-State (Off Campus)', grpValue:65007},
-                                                {grpName:'Out-of-State (On Campus)', grpValue:69130},
-                                                {grpName:'In-State (Off Campus)', grpValue:35253},
-                                                {grpName:'In-State (On Campus)', grpValue:39376},
+                                                {grpName:'Out-of-State (Off Campus Housing)', grpValue:65007},
+                                                {grpName:'Out-of-State (On Campus Housing)', grpValue:69130},
+                                                {grpName:'In-State (Off Campus Housing)', grpValue:35253},
+                                                {grpName:'In-State (On Campus Housing)', grpValue:39376},
                                               ]
                  }
                   ];
@@ -62,7 +62,7 @@ var groupData = [
 
     let pageWidth = $(window).width();
 
-    var margin = {top: 25, right: 200, bottom: 50, left: 75},
+    var margin = {top: 25, right: 220, bottom: 50, left: 75},
     width = pageWidth - margin.left - margin.right;
     width = Math.min(pageWidth, 900 - margin.left - margin.right);
 
@@ -147,7 +147,7 @@ var groupData = [
                 div.transition()
                     .duration(200)
                     .style("opacity", .9)
-                let tuit = "$" + d.grpValue.toString()
+                let tuit = "$" + d3.format(",")(d.grpValue).toString()
                 div.html(tuit)
                     .style("left", (d3.event.pageX + 10) + "px")
                     .style("top", (d3.event.pageY - 15) + "px")
@@ -175,7 +175,7 @@ svg.append("text")
         .attr("text-anchor", "middle")
         .style("font-size", "20px")
         .style("font-family", "benton-sans")
-        .text("Cost of Attending Berkeley (2014-2020)");
+        .text("Cost of Attending UC Berkeley (2014-2020)");
 
 svg.append("text")
         .attr("x", width)
@@ -183,7 +183,7 @@ svg.append("text")
          .style("font-size", "12px")
          .style("font-family", "benton-sans")
           .style("font-style", "italic")
-         .text("Source: US Dept of Education");
+         .text("Source: US Department of Education");
 
       //Legend
 
@@ -201,10 +201,10 @@ svg.append("text")
       .style("fill", function(d) { return color(d); });
 
   legend.append("text")
-      .attr("x", width + 150)
+      .attr("x", width + 10)
       .attr("y", 9)
       .attr("dy", ".35em")
-      .style("text-anchor", "end")
+      .style("text-anchor", "start")
       .style("font-family", "benton-sans")
       .style("font-size", 12)
       .text(function(d) {return d; });
