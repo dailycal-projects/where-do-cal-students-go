@@ -5,11 +5,11 @@
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 <!--<center style='font-family:benton-sans'>Which graduate degrees draw students from this college?</br></br></center>-->
-<center style='font-family:benton-sans'>Among UC Berkeley alumni who choose to attend graduate school, what degrees do they earn?</br></br></center>
+<center style='font-family:benton-sans'>Among UC Berkeley alumni who choose to attend graduate school, what degrees do they pursue?</br></br></center>
 
-<button onclick="update(data1)">Letters & Sci</button>
+<button onclick="update(data1)">L&S</button>
 <button onclick="update(data5)">Chemistry</button>
-<button onclick="update(data3)">Natural Resources</button>
+<button onclick="update(data3)">CNR</button>
 <button onclick="update(data4)">Env. Design</button>
 <button onclick="update(data6)">Haas</button>
 <button onclick="update(data2)">Engineering</button>
@@ -21,7 +21,7 @@
 <script>
 
 // set the dimensions and margins of the graph
-var width = 450
+var width = 500
     height = 450
     margin = 80;
 
@@ -35,13 +35,13 @@ var svg = d3.select("#pie")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-var data1 = {"values": {"Masters": 55, "PhD": 29, "MD":7, "JD": 9}, "name": "Letters & Sci"};
-var data2 = {"values": {"Masters": 58, "PhD": 42, "MD":0, "JD": 0}, "name": "Engineering"};
-var data3 = {"values": {"Masters": 46, "PhD": 20, "MD":17, "JD": 17}, "name": "Natural Resources"};
-var data4 = {"values": {"Masters": 100, "PhD": 0, "MD":0, "JD": 0}, "name": "Env. Design"};
-var data5 = {"values": {"Masters": 0, "PhD": 100, "MD":0, "JD": 0}, "name": "Chemistry"};
-var data6 = {"values": {"Masters": 100, "PhD": 0, "MD":0, "JD": 0}, "name": "Haas"};
-var data7 = {"values": {"Masters": 53, "PhD": 35, "MD":5, "JD": 7}, "name": "Overall"};
+var data1 = {"values": {"Master's": 55, "Ph.D.": 29, "Medical degree (MD)":7, "Law degree (JD)": 9}, "name": "L&S"};
+var data2 = {"values": {"Master's": 58, "Ph.D.": 42, "Medical degree (MD)":0, "Law degree (JD)": 0}, "name": "Engineering"};
+var data3 = {"values": {"Master's": 46, "Ph.D.": 20, "Medical degree (MD)":17, "Law degree (JD)": 17}, "name": "CNR"};
+var data4 = {"values": {"Master's": 100, "Ph.D.": 0, "Medical degree (MD)":0, "Law degree (JD)": 0}, "name": "Env. Design"};
+var data5 = {"values": {"Master's": 0, "Ph.D.": 100, "Medical degree (MD)":0, "Law degree (JD)": 0}, "name": "Chemistry"};
+var data6 = {"values": {"Master's": 100, "Ph.D.": 0, "Medical degree (MD)":0, "Law degree (JD)": 0}, "name": "Haas"};
+var data7 = {"values": {"Master's": 53, "Ph.D.": 35, "Medical degree (MD)":5, "Law degree (JD)": 7}, "name": "Overall"};
 
 var div = d3.select("#pie").append("div")
     .attr("class", "tooltip")
@@ -94,7 +94,14 @@ svg.append("text")
       div.transition()
           .duration(200)
           .style("opacity", .9)
-      let p = d.data.key + ": \n" + d.data.value.toString() + "%"
+      tmp = d.data.key
+      if (tmp == "Medical degree (MD)") {
+        tmp = "MD"
+      }
+      if (tmp == "Law degree (JD)") {
+        tmp = "JD"
+      }
+      let p = tmp + ": \n" + d.data.value.toString() + "%"
       div.html(p)
           .style("left", (d3.event.pageX + 10) + "px")
           .style("top", (d3.event.pageY - 15) + "px")
@@ -118,24 +125,24 @@ svg.append("text")
 update(data7)
 
   var legend = svg.selectAll(".legend")
-      .data(["Masters", "PhD", "MD", "JD"])
+      .data(["Master's", "Ph.D.", "Medical degree (MD)", "Law degree (JD)"])
       .enter().append("g")
       .attr("class", "legend")
       .attr("transform", function(d,i) { return "translate(0," + i * 20 + ")"; })
       .style("opacity","0");
 
   legend.append("rect")
-      .attr("x", 150)
+      .attr("x", 105)
       .attr("y", -210)
       .attr("width", 10)
       .attr("height", 10)
       .style("fill", function(d) { return color_pie(d); });
 
   legend.append("text")
-      .attr("x", 215)
+      .attr("x", 125)
       .attr("y", -205)
       .attr("dy", ".35em")
-      .style("text-anchor", "end")
+      .style("text-anchor", "start")
       .style("font-family", "benton-sans")
       .style("font-size", 12)
       .text(function(d) {return d; });
