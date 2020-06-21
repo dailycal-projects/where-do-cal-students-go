@@ -1,35 +1,31 @@
 {
   "id": "2784169741",
-  "publishPath": "2020/test/",
-  "stagingUrl": "http://stage-projects.dailycal.org/2020/test/index.html",
-  "url": "http://projects.dailycal.org/2020/test/",
-  "timestamp": "2018-04-10T08:13-0400",
-  "dateline": "04/10/18 08:13 PM EDT",
+  "publishPath": "2020/uc-berkeley-students-after-grad/",
+  "url": "http://projects.dailycal.org/2020/uc-berkeley-students-after-grad/",
+  "timestamp": "2020-06-22T08:13-0400",
+  "dateline": "06/22/20 08:13 PM EDT",
   "header": {
-    "headline": "This is your headline in the metadata file",
-    "subhed": "Subhed lives in the metadata.",
-    "byline": "Byline in metadata",
+    "headline": "Where do UC Berkeley students go?",
+    "subhed": "A look at the lives of UC Berkeley students after graduation",
+    "byline": "",
     "byline_link": "https://www.dailycal.org/"
   },
   "share": {
     "fbook": {
-      "card_title": "test",
-      "card_description": "UC Berkeley's independent student-run newspaper",
-      "author": "dailycal"
+      "card_title": "Where do UC Berkeley students go?",
+      "card_description": "A look at the lives of UC Berkeley students after graduation"
     },
     "twitter": {
-      "card_title": "test",
-      "share_tweet": "UC Berkeley's independent student-run newspaper",
-      "card_description": "The latest news from The Daily Californian.",
-      "author": "@dailycal"
+      "card_title": "Where do UC Berkeley students go?",
+      "share_tweet": "A look at the lives of UC Berkeley students after graduation"
     },
     "image": {
-      "url": "http://projects.dailycal.org/2020/test/images/share.jpg",
-      "alt": "<Text>",
+      "url": "https://www.dailycal.org/assets/uploads/2020/05/graduation_karenchow_file.jpg",
+      "alt": "Where do UC Berkeley students go?",
       "type": "image/jpeg",
-      "width": "600",
-      "height": "300"
+      "width": "900",
+      "height": "580"
     },
-    "keywords": "Daily Cal, news"
+    "keywords": "Daily Cal, graduation, grad school, careers"
   }
 }
